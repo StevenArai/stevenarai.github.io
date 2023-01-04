@@ -1,2 +1,2 @@
 # stevenarai.github.io
-Temporary static site
+A temporary static site
