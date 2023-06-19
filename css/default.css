@@ -141,6 +141,123 @@ body {
 	border-radius: 8px;
 }/*卡片样式，从html"style"传递参数，--W 宽度，--H 高度*/
 
+.switch-input {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+.switch-input + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}/*--*//*
+input.switch-input + label {
+    padding: 2px;
+    width: 120px;
+    height: 60px;
+    background-color: #dddddd;
+    border-radius: 60px;
+    transition: background 0.4s;
+}
+input.switch-input + label:before,
+input.switch-input + label:after {
+    display: block;
+    position: absolute;
+    content: "";
+}
+input.switch-input + label:before {
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #fff;
+    border-radius: 60px;
+    transition: background 0.4s;
+}
+input.switch-input + label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 52px;
+    background-color: #dddddd;
+    border-radius: 52px;
+    transition: margin 0.4s, background 0.4s;
+}
+input.switch-input:checked + label {
+    background-color: #8ce196;
+}
+input.switch-input:checked + label:after {
+    margin-left: 60px;
+    background-color: #8ce196;
+}*/
+/*开关*/
+input.switch-input + label {
+    margin: 20px;
+    width: 40px;
+    height: 20px;
+    background-color: #888;
+    border-radius: 20px;
+    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+}
+input.switch-input + label:before,
+input.switch-input + label:after {
+    display: block;
+    position: absolute;
+    content: "";
+}
+input.switch-input + label:before {
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+/*    background-color: #888;*/
+    border-radius: 20px;
+    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+}
+input.switch-input + label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    right: 4px;
+    width: 12px;
+    margin-right: 4px;
+    background-color: #fff;
+    border-radius: 12px;
+    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+}
+input.switch-input + label:hover:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+}
+input.switch-input:checked + label:hover:after {
+ 	margin-left: 18px; 	
+    margin-right: 2px;
+ 	background-color: #fff;
+}
+input.switch-input:checked + label {
+    /*background-color: rgba(0,0,0,0);*/
+}
+input.switch-input:checked + label:before {
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    padding-right: 2px;
+    background-color: #c9a78d;
+    border-radius: 20px;
+    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+}
+input.switch-input:checked + label:after {
+ 	margin-left: 20px; 	
+    margin-right: 2px;
+ 	background-color: #fff;
+}
+
 h1 {
 	margin: 0;
 }
