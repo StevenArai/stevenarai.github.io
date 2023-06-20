@@ -1,5 +1,5 @@
 body {
-	background-image: url("../images/savanna.png");
+	background-image: url("../images/savanna.jpg");
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-attachment: fixed;
@@ -31,8 +31,6 @@ body {
 	z-index: 2;
 }
 .navlogo-txt{
-
-
 	position: absolute;
 	left: 65px;
 	top: 16px;
@@ -59,7 +57,7 @@ body {
 	float: left;
 	display: block;
 	text-decoration: none;
-	color: #000000;
+	color: black;
 	background-color: rgba(0, 0, 0, 0);
 	background-clip: border-box;
 	border-radius: 4px;
@@ -256,7 +254,9 @@ input.switch-input:checked + label:after {
  	margin-left: 20px; 	
     margin-right: 2px;
  	background-color: #fff;
-}
+}/*开关控件*/
+
+
 
 h1 {
 	margin: 0;
