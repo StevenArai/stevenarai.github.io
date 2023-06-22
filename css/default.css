@@ -1,5 +1,7 @@
+
 body {
 	background-image: url("../images/savanna.jpg");
+	background-color: black;
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-attachment: fixed;
@@ -66,6 +68,18 @@ body {
 .navitem:hover {
 	background-color: rgba(135, 135, 135, 0.1);
 }/*item悬停时的按钮外形*/
+@media only screen and (max-width: 640px){
+	.navlogo-txt{
+		display: none;
+	}/*当屏幕变窄时隐藏txt*/
+	.navitem{
+		left: 60px;
+	}
+	.navlist{
+		margin: auto;
+		width: 50%;
+	}
+} 
 
 .dropdown-content {
 	display: flex;
@@ -124,11 +138,29 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 16px 56px 128px 56px;
-}/*页面内容边界*/
+}
+
+@media only screen and (max-width: 640px){
+	.page-content {
+		display: /*flex*/block;
+/*		flex-wrap: wrap;*/
+		margin: 0 0 0 0;
+	}
+}
+@media only screen and (min-width: 1280px){
+	.page-content {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 16px auto 128px auto;
+/*		margin: auto;*/
+		width: 1280px;
+	}
+}
+/*页面内容边界*/
 
 .card {
-	width: var(--W);
-	height: var(--H);
+	width: auto;
+	height: auto;
 	padding: 40px 60px 40px 60px;
 	margin: 20px 20px 20px 20px;
 	background-color: rgba(255, 255, 255, 0.8);
@@ -137,6 +169,12 @@ body {
 	backdrop-filter: blur(16px);
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) ;
 	border-radius: 8px;
+
+/*	white-space: nowrap;
+	overflow: hidden;*/
+	word-wrap:break-word;
+	text-overflow: ellipsis;
+
 }/*卡片样式，从html"style"传递参数，--W 宽度，--H 高度*/
 
 .switch-input {
@@ -256,7 +294,7 @@ input.switch-input:checked + label:after {
  	background-color: #fff;
 }/*开关控件*/
 
-
+p.bar
 
 h1 {
 	margin: 0;
