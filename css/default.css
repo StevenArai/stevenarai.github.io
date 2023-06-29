@@ -45,7 +45,7 @@ path{
 
 body {
 	background-image: url("../images/savanna.jpg");
-	background-color: color ( --japari );
+	background-color: var(--japari);
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-attachment: fixed;
