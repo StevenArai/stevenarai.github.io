@@ -23,7 +23,7 @@
 
 	--japari: #d8b526;
 	--white-semi: rgba(255, 255, 255 ,0.8);
-	--black-semi: rgba(0, 0, 0 ,0.8);
+	--black-semi: rgba(29, 29, 29 ,0.8);
 
 /*light mode*/
 	--background: var(--japari);
@@ -32,15 +32,16 @@
 	--content: black;
 	--content-semi: #606060;
 	--shadow: rgba(0,0,0,0.3);
+	--selected: rgba(127,127,127,0.3);
 	color: var(--content);
 
-/*dark mode*/
-/*	--background: var(--black);
+/*dark mode*//*
+	--background: var(--black);
 	--card: var(--black-semi);
-	--card-concrete: black;
+	--card-concrete: #1c1c1c;
 	--content: white;
-	color: var(--content);*/
-	/*
+	--selected: rgba(127,127,127,0.3);
+	color: var(--content);/*
 	filter japari：
 	filter: invert(87%) sepia(30%) saturate(2018%) hue-rotate(349deg) brightness(95%) contrast(77%);
 	*/
@@ -55,9 +56,8 @@ hr {
 
 object{
 	height: 100%;
-	display: inline-block;
-	/*dark mode*/
-	/*filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(0deg) brightness(100%) contrast(100%);*/
+	display: inline-block;	
+/*	filter: invert(100%);*/
 }
 
 /****/
@@ -146,36 +146,69 @@ body {
 
 .dropdown-content {
 	display: flex;
+	opacity: 0;
 	position: absolute;
 	margin: -200px 100px 100px 100px;
 	width: calc(100% - 200px);
-/*	top: 45px;
+	padding: 32px 32px 32px 32px;
+	/*	top: 45px;
 	left: calc(225px + var(--N)*80px);*/
 	background-color: var(--card-concrete);
 	backdrop-filter: blur(16px);
-	box-shadow: 0 0 0px rgba(0, 0, 0, 0.2) ;
+	box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
 	border-radius: 8px;
 	z-index: 2;
-	height: 200px;
-/*	overflow: hidden;*/
-	flex-direction: column-reverse;
+	/*height: 200px;*/
+	height: auto;
+	/*	overflow: hidden;*/
+	flex-direction: row;
+	flex-wrap: wrap;
 	-webkit-transition: all 0.167s cubic-bezier(1,0,1,0);
 	z-index: -1;
+	align-content: space-around;
+	justify-content: space-evenly;
+	align-items: center;
 }/*item的下拉菜单，隐藏*/
+
+div.dropdown-item{
+	width: 96px;
+	height: 84px;
+	padding: 13px 13px 13px 13px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	border-radius: 4px;
+}
+div.dropdown-item:hover{
+	background-color: var(--selected);
+}
+
+div.dropdown-item > object{
+	height: 32px;
+}
+div.dropdown-item > p {
+	text-align: center;
+	text-size-adjust: 11px;
+}
+
 .navlist > li:hover .dropdown-content {
+	display: flex;
+	opacity: 1;
 	position: absolute;
 	margin: 45px 100px 100px 100px;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) ;
-	height: 200px;
 	-webkit-transition: all 0.167s cubic-bezier(0,1,0,1);
 	z-index: -1;
+	
 }/*列表的li悬停时显示下拉菜单*//*
 .dropdown-content:hover .dropdown-content {
 	position: absolute;
 	top: 45px;
 	-webkit-transition: all 0.3s cubic-bezier(0,1,0,1);
 	height: 500px;
-}/*悬停于菜单时保持显示*/
+}/*悬停于菜单时保持显示*//*
 .dropdown-content > a {
 	display: block;
 	position: relative;
@@ -192,32 +225,37 @@ body {
 	background-clip: border-box;
 	border-radius: 4px;
 	vertical-align: middle;
-}/*下拉菜单内容a的样式*/
+}/*下拉菜单内容a的样式*//*
 .dropdown-content > a:hover {
 	vertical-align: middle;
 	background-color: rgba(135, 135, 135, 0.1);
 }/*下拉菜单内容悬停时的按钮外形*/
 
-.page-content {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 16px 56px 128px 56px;
-}
 
 @media only screen and (max-width: 640px){
 	.page-content {
+		display: flex;
+		flex-wrap: wrap;
 		display: /*flex*/block;
 /*		flex-wrap: wrap;*/
 		margin: 0 0 0 0;
 	}
 }
-@media only screen and (min-width: 1392px){
+@media only screen and (max-width: 1392px) and (min-width: 640px) {
+	.page-content {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 16px 56px 128px 56px;
+	    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+	}
+}
+@media only screen and (min-width: 1392px) {
 	.page-content {
 		display: flex;
 		flex-wrap: wrap;
 		margin: 16px auto 128px auto;
 /*		margin: auto;*/
-		width: 1280px;
+		width: 1265px;
 	}
 }
 /*页面内容边界*/
@@ -234,14 +272,22 @@ body {
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 	border-radius: 8px;
 	/*	white-space: nowrap;
-	overflow: hidden;*/
+	7overflow: hidden;*/
+
 	word-wrap:break-word;
 	text-overflow: ellipsis;
+
+	box-sizing: border-box;
 }/*卡片样式，从html"style"传递参数，--W 宽度，--H 高度*/
+@media only screen and (max-width: 640px){
+	.card{
+		padding: 20px 20px 20px 20px;
+	}
+}
 
 .banner-wrapper{
-	width: 100%;
-	height: 300px;
+	width: auto;
+	height: auto;
 	display: flex;
 	padding: 0 0 0 0;
 	overflow: hidden;
@@ -249,6 +295,15 @@ body {
 	flex-wrap: nowrap;
 	align-items: center;
 	align-content: center;
+}
+.banner-img-wrapper::-webkit-scrollbar{
+	display: none;
+}
+@media only screen and (max-width: 640px){
+	.banner-wrapper{
+		height: ;
+	}
+
 }
 .banner-img-wrapper{
 	white-space: nowrap;
@@ -271,7 +326,7 @@ body {
     outline: none;
     user-select: none;
 }/*--*//*
-input.switch-input + label {
+input.switch-input + label {	
     padding: 2px;
     width: 120px;
     height: 60px;
@@ -383,10 +438,17 @@ button{
 	border-radius: 4px;
 	border-width: 0;
 	background-color: var(--card-concrete);
+	color: var(--content);
+	cursor: pointer;
+	-webkit-transition: all 0.167s cubic-bezier(1,0,1,0);
 }
 button.primary{
 	background-color: var(--japari);
 	color: var(--card-concrete);
+}
+button:active{
+	box-shadow: 0 0 0;
+	transform: translateY(2px);
 }
 
 div.intro{
@@ -402,7 +464,7 @@ div.intro{
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) ;
 	border-radius: 4px;
 	vertical-align: middle;
-	margin: 5px 5px 5px 5px;
+	margin: 5px 0 5px 0;
 }
 div.intro > object{
 	height: 20px;
@@ -437,6 +499,7 @@ div.intro-switch-wrapper > div{
 	margin: 0 0 0 0 ;
 	padding: 0 0 0 0 ;
 }
+
 
 p.bar
 
