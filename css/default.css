@@ -148,7 +148,7 @@ body {
 	display: flex;
 	opacity: 0;
 	position: absolute;
-	margin: -200px 100px 100px 100px;
+	margin: -500px 100px 100px 100px;
 	width: calc(100% - 200px);
 	padding: 32px 32px 32px 32px;
 	/*	top: 45px;
@@ -164,11 +164,13 @@ body {
 	flex-direction: row;
 	flex-wrap: wrap;
 	-webkit-transition: all 0.167s cubic-bezier(1,0,1,0);
+	transition: all 0.167s cubic-bezier(1,0,1,0);
 	z-index: -1;
 	align-content: space-around;
 	justify-content: space-evenly;
 	align-items: center;
 }/*item的下拉菜单，隐藏*/
+
 
 div.dropdown-item{
 	width: 96px;
@@ -200,6 +202,7 @@ div.dropdown-item > p {
 	margin: 45px 100px 100px 100px;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) ;
 	-webkit-transition: all 0.167s cubic-bezier(0,1,0,1);
+	transition: all 0.167s cubic-bezier(0,1,0,1);
 	z-index: -1;
 	
 }/*列表的li悬停时显示下拉菜单*//*
@@ -221,7 +224,7 @@ div.dropdown-item > p {
 	display: block;
 	text-align: center;
 	text-decoration: none;
-/*	color: #000000;*/
+/*	color: #000000;*//*
 	background-clip: border-box;
 	border-radius: 4px;
 	vertical-align: middle;
@@ -238,7 +241,7 @@ div.dropdown-item > p {
 		flex-wrap: wrap;
 		display: /*flex*/block;
 /*		flex-wrap: wrap;*/
-		margin: 0 0 0 0;
+		margin: 0;
 	}
 }
 @media only screen and (max-width: 1392px) and (min-width: 640px) {
@@ -247,6 +250,7 @@ div.dropdown-item > p {
 		flex-wrap: wrap;
 		margin: 16px 56px 128px 56px;
 	    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+	    transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 	}
 }
 @media only screen and (min-width: 1392px) {
@@ -260,11 +264,13 @@ div.dropdown-item > p {
 }
 /*页面内容边界*/
 
+
 .card {
 	width: auto;
 	height: auto;
-	padding: 40px 60px 40px 60px;
-	margin: 20px 20px 20px 20px;
+	padding: 40px 60px;
+	margin: 20px;
+	/*	margin: auto;*/
 	background-color: var(--card);
 	background-size: cover;
 	background-position: center;
@@ -273,23 +279,24 @@ div.dropdown-item > p {
 	border-radius: 8px;
 	/*	white-space: nowrap;
 	7overflow: hidden;*/
-
 	word-wrap:break-word;
 	text-overflow: ellipsis;
-
 	box-sizing: border-box;
 }/*卡片样式，从html"style"传递参数，--W 宽度，--H 高度*/
 @media only screen and (max-width: 640px){
 	.card{
-		padding: 20px 20px 20px 20px;
+		padding: 20px;
 	}
+}
+.compact{	
+	padding: 5px;
 }
 
 .banner-wrapper{
 	width: auto;
 	height: auto;
 	display: flex;
-	padding: 0 0 0 0;
+	padding: 0;
 	overflow: hidden;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -298,21 +305,49 @@ div.dropdown-item > p {
 }
 .banner-img-wrapper::-webkit-scrollbar{
 	display: none;
-}
+}/*
 @media only screen and (max-width: 640px){
 	.banner-wrapper{
 		height: ;
 	}
 
-}
+}*/
 .banner-img-wrapper{
+	background-color:  var(--japari);
 	white-space: nowrap;
-	overflow: auto;
-
+	overflow:scroll;
+	scroll-behavior: smooth;
 }
+
 .banner-img-wrapper>img{
 	width: 100%;
+	z-index: -1;
+	scroll-behavior: smooth;
 } 
+
+
+
+.banner-control{
+	display: flex;
+	flex-direction: row;
+}
+
+.banner-control>img{
+	border-radius: 4px;
+	margin: 10px;
+	width: 64px;
+}
+
+.banner-control>div{
+	position: absolute;
+	border-radius: 2px;
+	margin-left: 14px;
+	margin-top: 38px;
+	width: 56px;
+	height: 3px;
+	background-color: var(--japari);
+}
+
 
 .switch-input {
     position: absolute;
@@ -373,6 +408,7 @@ input.switch-input + label {
     background-color: grey;
     border-radius: 20px;
     -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+    transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 }
 input.switch-input + label:before,
 input.switch-input + label:after {
@@ -388,6 +424,7 @@ input.switch-input + label:before {
 /*    background-color: #888;*/
     border-radius: 20px;
     -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+    transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 }
 input.switch-input + label:after {
     top: 4px;
@@ -399,6 +436,7 @@ input.switch-input + label:after {
     background-color: white;
     border-radius: 12px;
     -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+    transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 }
 input.switch-input + label:hover:after {
     top: 4px;
@@ -411,10 +449,10 @@ input.switch-input:checked + label:hover:after {
  	margin-left: 18px; 	
     margin-right: 2px;
  	background-color: #fff;
-}
+}/*
 input.switch-input:checked + label {
-    /*background-color: rgba(0,0,0,0);*/
-}
+    background-color: rgba(0,0,0,0);
+}*/
 input.switch-input:checked + label:before {
     top: 0px;
     left: 0px;
@@ -424,6 +462,7 @@ input.switch-input:checked + label:before {
     background-color: var(--japari);
     border-radius: 20px;
     -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+    transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 }
 input.switch-input:checked + label:after {
  	margin-left: 20px; 	
@@ -441,6 +480,7 @@ button{
 	color: var(--content);
 	cursor: pointer;
 	-webkit-transition: all 0.167s cubic-bezier(1,0,1,0);
+	transition: all 0.167s cubic-bezier(1,0,1,0);
 }
 button.primary{
 	background-color: var(--japari);

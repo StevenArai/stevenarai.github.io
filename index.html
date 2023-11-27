@@ -7,6 +7,7 @@
 	<title>%Title% - [Hat Union / HUCP / Arai Factory / Japari TV]</title>
 </head>
 <body>
+	<script src=".\js\index.js"></script>
 	<div class="navbar">
 		
 		<object alt="navlogo" class="navlogo" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
@@ -34,10 +35,6 @@
 				    <div class="dropdown-item">
 				  		<object  alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
 				  		<p>Hat Union 1</p>
-					</div>
-				    <div class="dropdown-item">
-				  		<object  alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
-				  		<p>1145141919810aaaaa</p>
 					</div>
 				</div>
 			</li>
@@ -72,35 +69,31 @@
 	</div>
 	<div class="page-content">
 		<div class="card banner-wrapper">
-			<div class="banner-img-wrapper">
-				<img src="./images/banner-ocpy.png">
-				<img src="./images/banner-ocpy.png">
-				<img src="./images/banner-ocpy.png">
-				<img src="./images/banner-ocpy.png">
-				<img src="./images/banner-ocpy.png">
+			<div class="banner-img-wrapper" id="banner-handle" onscroll="bannerScrolling()">
+				<img id="img1" src="./images/banners/banner_1.jpg">
+				<img id="img1" src="./images/banners/banner_1.jpg">
+				<img id="img1" src="./images/banners/banner_1.jpg">
+				<img id="img1" src="./images/banners/banner_1.jpg">
 			</div>
 		</div>
-		<div class="card">
-			<h1>Head 1</h1>
-			<h2>Head 2</h2>
-			<h3>Head 3</h3>
-			<h4>Head 4</h4>
-			<p>This is a paragraph.</p>
-			<p>Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER Loream ipsuim. Japari Park lasts FOREVER </p>
+		<div class="card compact" style="text-align: center; margin: auto">
+			<div class="banner-control">
+				<div></div>
+				<img id="img1" src="./images/banners/banner_1.jpg">
+				<img id="img1" src="./images/banners/banner_1.jpg">
+				<img id="img1" src="./images/banners/banner_1.jpg">
+				<img id="img1" src="./images/banners/banner_1.jpg">
+			</div>
 		</div>
-
-		<!--div class="card" style="--W:240px; --H:320px;">
-			<h1>Fixed Size</h1>
-			<p></p>
-			<h2>Width</h2>
-			<p>240px</p>
-			<h2>Height</h2>
-			<p>320px</p>
-
-			DO NOT USE FIXED SIZE
-			WHICH WOULD RUIN COMPALIBILITY TO SMALL SCREEN
-
-		</div-->
+		<div class="card",id="banner-controll" style="text-align: center; margin: 20px auto">
+			<h1>Empower every friends to achieve its extraordinariness.</h1>
+			<button class="primary" onclick="scrollBanner('L')">Left
+			</button><button class="primary" onclick="scrollBanner('R')">Right
+			</button>
+		</div>
+		<span style="display: inline;">
+			<div></div>
+		</span>
 		<div class="card">
 			<h1>Swiches</h1>
 			<h3>on and off</h3>
