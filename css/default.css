@@ -155,7 +155,7 @@ body {
 	left: calc(225px + var(--N)*80px);*/
 	background-color: var(--card-concrete);
 	backdrop-filter: blur(16px);
-	box-shadow: 0 0 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) ;
 	border-radius: 8px;
 	z-index: 2;
 	/*height: 200px;*/
@@ -336,6 +336,7 @@ div.dropdown-item > p {
 	border-radius: 4px;
 	margin: 10px;
 	width: 64px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .banner-control>div{
@@ -344,8 +345,10 @@ div.dropdown-item > p {
 	margin-left: 14px;
 	margin-top: 38px;
 	width: 56px;
-	height: 3px;
+	height: 4px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 	background-color: var(--japari);
+	transition: all 0.167s cubic-bezier(1, 0, 0, 1);
 }
 
 
