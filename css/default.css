@@ -47,7 +47,12 @@
 	*/
 }
 a{
-	color:var(--content);
+	color:var(--japari);
+	text-decoration: underline;
+}
+
+header a{
+	color: var(--content);
 }
 
 hr {
@@ -72,7 +77,7 @@ body {
 	margin:0;
 }/*背景图片*/
 
-.navbar {
+header {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
@@ -82,7 +87,7 @@ body {
 	height: 56px;
 	background-color: var(--card);
 	backdrop-filter: blur(16px);
-	box-shadow: 0 0 32px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 32px var(--shadow);
 	z-index: 2;
 }/*导航栏div*/
 
@@ -155,7 +160,7 @@ body {
 	left: calc(225px + var(--N)*80px);*/
 	background-color: var(--card-concrete);
 	backdrop-filter: blur(16px);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) ;
+	box-shadow: 0 0 8px var(--shadow) ;
 	border-radius: 8px;
 	z-index: 2;
 	/*height: 200px;*/
@@ -200,7 +205,7 @@ div.dropdown-item > p {
 	opacity: 1;
 	position: absolute;
 	margin: 45px 100px 100px 100px;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) ;
+	box-shadow: 0 0 8px var(--shadow) ;
 	-webkit-transition: all 0.167s cubic-bezier(0,1,0,1);
 	transition: all 0.167s cubic-bezier(0,1,0,1);
 	z-index: -1;
@@ -236,7 +241,7 @@ div.dropdown-item > p {
 
 
 @media only screen and (max-width: 640px){
-	.page-content {
+	main {
 		display: flex;
 		flex-wrap: wrap;
 		display: /*flex*/block;
@@ -245,27 +250,27 @@ div.dropdown-item > p {
 	}
 }
 @media only screen and (max-width: 1392px) and (min-width: 640px) {
-	.page-content {
+	main {/*
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: wrap;*/
 		margin: 16px 56px 128px 56px;
 	    -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 	    transition: all 0.167s cubic-bezier(0, 0, 0, 1);
 	}
 }
 @media only screen and (min-width: 1392px) {
-	.page-content {
+	main {/*
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: wrap;*/
 		margin: 16px auto 128px auto;
-/*		margin: auto;*/
+		margin: auto;
 		width: 1265px;
 	}
 }
 /*页面内容边界*/
 
 
-.card {
+section {
 	width: auto;
 	height: auto;
 	padding: 40px 60px;
@@ -274,8 +279,8 @@ div.dropdown-item > p {
 	background-color: var(--card);
 	background-size: cover;
 	background-position: center;
-	backdrop-filter: blur(16px);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(32px) brightness(125%);
+	box-shadow: 0 0 8px var(--shadow);
 	border-radius: 8px;
 	/*	white-space: nowrap;
 	7overflow: hidden;*/
@@ -284,12 +289,20 @@ div.dropdown-item > p {
 	box-sizing: border-box;
 }/*卡片样式，从html"style"传递参数，--W 宽度，--H 高度*/
 @media only screen and (max-width: 640px){
-	.card{
+	section{
 		padding: 20px;
 	}
 }
+td{
+	
+	display: inline-flex;
+	white-space: nowrap;
+	width: 100%;
+	justify-content: center;
+}
 .compact{	
-	padding: 5px;
+	padding: 5px;  
+	margin: 0 auto;
 }
 
 .banner-wrapper{
@@ -323,20 +336,21 @@ div.dropdown-item > p {
 	width: 100%;
 	z-index: -1;
 	scroll-behavior: smooth;
+	margin: 0px;
 } 
 
 
-
-.banner-control{
-	display: flex;
-	flex-direction: row;
+.banner-control {
+    display: inline-flex;
+    flex-direction: row;
+	white-space: nowrap;
 }
 
 .banner-control>img{
 	border-radius: 4px;
 	margin: 10px;
 	width: 64px;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 8px var(--shadow);
 }
 
 .banner-control>div{
@@ -346,7 +360,7 @@ div.dropdown-item > p {
 	margin-top: 38px;
 	width: 56px;
 	height: 4px;
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 8px var(--shadow);
 	background-color: var(--japari);
 	transition: all 0.167s cubic-bezier(1, 0, 0, 1);
 }
@@ -482,8 +496,8 @@ button{
 	background-color: var(--card-concrete);
 	color: var(--content);
 	cursor: pointer;
-	-webkit-transition: all 0.167s cubic-bezier(1,0,1,0);
-	transition: all 0.167s cubic-bezier(1,0,1,0);
+	-webkit-transition: all 0.167 cubic-bezier(0,1,0,1);
+	transition: all 0.167s cubic-bezier(0,1,0,1);
 }
 button.primary{
 	background-color: var(--japari);
@@ -504,7 +518,7 @@ div.intro{
 	box-sizing: border-box;
 	height: 69px;
 	background-color: var(--card);
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) ;
+	box-shadow: 0 0 2px var(--shadow) ;
 	border-radius: 4px;
 	vertical-align: middle;
 	margin: 5px 0 5px 0;

@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 	<link rel="stylesheet" type="text/css" href="./css/default.css">
 	<title>%Title% - [Hat Union / HUCP / Arai Factory / Japari TV]</title>
+	<script src=".\js\index.js"></script>
 </head>
 <body>
-	<script src=".\js\index.js"></script>
-	<div class="navbar">
+	<header>
 		
 		<object alt="navlogo" class="navlogo" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
 		<object alt="navlogo-txt" class="navlogo-txt" data="./svgs/t-hatunion.svg" ;type="image/svg+xml"> </object>
 
-		<ul class="navlist">
+		<nav>
+			<ul class="navlist">
 			<li>
 				<a class="navitem" href="javascript:void(0)">Home</a>
 				<div class="dropdown-content" style="--N:0">
@@ -65,34 +66,47 @@
 				</div>
 			</li>
 
-		</ul>
-	</div>
-	<div class="page-content">
-		<div class="card banner-wrapper">
-			<div class="banner-img-wrapper" id="banner-handle" onscroll="bannerScrolling()">
-				<img id="img1" src="./images/banners/banner_1.jpg">
-				<img id="img1" src="./images/banners/banner_1.jpg">
-				<img id="img1" src="./images/banners/banner_1.jpg">
-				<img id="img1" src="./images/banners/banner_1.jpg">
-			</div>
-		</div>
-		<div class="card compact" style="text-align: center; margin: auto">
-			<div class="banner-control">
-				<div id="banner-control"></div>
-				<img onclick="scrollBanner(1);" src="./images/banners/banner_1.jpg">
-				<img onclick="scrollBanner(2);" src="./images/banners/banner_1.jpg">
-				<img onclick="scrollBanner(3);" src="./images/banners/banner_1.jpg">
-				<img onclick="scrollBanner(4);" src="./images/banners/banner_1.jpg">
-			</div>
-		</div>
-		<div class="card" style="text-align: center; margin: 20px auto">
-			<h1>Empower every friends to achieve its extraordinariness.</h1>
-			</button>
-		</div>
-		<span style="display: inline;">
-			<div></div>
-		</span>
-		<div class="card">
+			</ul>
+		</nav>
+		
+	</header>
+	<main>
+		<table>
+			<thead><tr><td>
+				<section class="banner-wrapper">
+					<div class="banner-img-wrapper" id="banner-handle" onscroll="bannerScrolling()">
+						<img id="img1" src="./images/banners/banner_1.jpg">
+						<img id="img1" src="./images/banners/banner_1.jpg">
+						<img id="img1" src="./images/banners/banner_1.jpg">
+						<img id="img1" src="./images/banners/banner_1.jpg">
+					</div>
+				</section>
+			</td></tr>
+			<tr><td>
+				<section class="compact">
+					<div class="banner-control">
+						<div id="banner-control"></div>
+						<img onclick="scrollBanner(1);" src="./images/banners/banner_1.jpg">
+						<img onclick="scrollBanner(2);" src="./images/banners/banner_1.jpg">
+						<img onclick="scrollBanner(3);" src="./images/banners/banner_1.jpg">
+						<img onclick="scrollBanner(4);" src="./images/banners/banner_1.jpg">
+					</div>
+				</section>	
+			</tr></td></thead>
+
+			<tbody>
+				<tr><td><section>
+					<h1>Empower every friends to achieve its extraordinariness.</h1>
+				</section></td></tr>
+
+				
+			</tbody>
+
+		</table>
+
+		
+		<br/>
+		<section>
 			<h1>Swiches</h1>
 			<h3>on and off</h3>
 			<hr>
@@ -100,26 +114,30 @@
 			<hr>
 			<div class="switch"><input id="switch2" class="switch-input" type="checkbox"><label for="switch2"></label></div>
 			
-		</div>
-		<div class="card">
+		</section>
+		<section>
 			<h1>Buttons</h1>
 			<h3>Primary and secondary</h3>
 			<p></p>
 			<button class="primary">Primary</button>
 			<p></p>
 			<button>Secondary</button>
-		</div>
-		<div class="card" style="background-image:url(./images/skywheel.jpg);">	
+		</section>
+		<section style="background-image:url(./images/skywheel.jpg);">	
 			<a href="./images/skywheel.jpg" style="color:white;">skywheel.jpg</a>
-		</div>
-		<div class="card" style="width:fit-content;">
+		</section>
+		<section style="width:fit-content;">
 			<h1>Sky Wheel</h1>
 			<h3>the end of the park</h3>
 			<p>"We are the best friends."</p>
-		</div>
+		</section>
+		<section>
+			<h1>Hyperlink</h1>
+			<a>Link</a>
+		</section>
 
 
-		<div class="card" style="width: auto;">
+		<section style="width: auto;">
 			<h1>Intros</h1>
 			<div class="intro">
 				<object class="intro" alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
@@ -172,9 +190,9 @@
 				</div>
 			</div>
 
-		</div>
+		</section>
 
-		<div class="card">
+		<section>
 		<p>114514</p>
 		<p>114514</p>
 		<p>114514</p>
@@ -197,7 +215,7 @@
 		<p>114514</p>
 		<p>114514</p>
 		<p>114514</p>
-		</div>
-	</div>
+		</section>
+	</main>
 </body>
 </html>

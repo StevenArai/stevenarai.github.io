@@ -1,0 +1,118 @@
+</head>
+<link rel="stylesheet" type="text/css" href="default.css">
+<nav class="navbar navbar-default" role="navigation">
+<div class="container-fluid"> 
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#example-navbar-collapse">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="https://jiangsang.github.io/">Jianger's Blog</a>
+</div>
+<div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav navbar-nav">
+        <li><a href="https://jiangsang.github.io/"><i class="menu-item-icon fa fa-fw fa-home"></i>首页</a></li>
+        <li><a href="https://jiangsang.github.io/about"><i class="menu-item-icon fa fa-fw fa-user"></i>关于</a></li>
+        <li><a href="https://jiangsang.github.io/archives/"><i class="menu-item-icon fa fa-fw fa-archive"></i>归档</a></li>
+        <li><a href="https://jiangsang.github.io/tags/"><i class="menu-item-icon fa fa-fw fa-tags"></i>标签</a></li>
+        <li><a href="https://jiangsang.github.io/life/"><i class="menu-item-icon fa fa-fw fa-apple"></i>生活</a></li>
+        <li class="active"><a href="https://jiangsang.github.io/life/"><i class="menu-item-icon fa fa-fw fa-camera-retro"></i>相册</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<div id="box" class="box"></div>
+<script type="text/javascript">
+function loadXMLDoc(xmlUrl) 
+{
+    try //Internet Explorer
+    {
+        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+    }
+    catch(e)
+    {
+      try //Firefox, Mozilla, Opera, etc.
+        {
+          xmlDoc=document.implementation.createDocument("","",null);
+        }
+      catch(e) {alert(e.message)}
+    }
+    
+    try 
+    {
+          xmlDoc.async=false;
+          xmlDoc.load(xmlUrl);
+    }
+    catch(e) {
+        try //Google Chrome  
+          {  
+            var chromeXml = new XMLHttpRequest();
+            chromeXml.open("GET", xmlUrl, false);
+            chromeXml.send(null);
+            xmlDoc = chromeXml.responseXML.documentElement; 				
+            //alert(xmlDoc.childNodes[0].nodeName);
+            //return xmlDoc;    
+          }  
+          catch(e)  
+          {  
+              alert(e.message)  
+          }  		  	
+    }
+    return xmlDoc; 
+}
+//xmllink就是你的相册存储桶的访问域名
+xmllink="";
+xmlDoc=loadXMLDoc(xmllink);
+var urls=xmlDoc.getElementsByTagName('Key');
+var date=xmlDoc.getElementsByTagName('LastModified');
+var showNum=12; //每个相册一次展示多少照片
+if ((window.innerWidth)>1200) {wid=(window.innerWidth*3)/18;}
+var box=document.getElementById('box');
+var i=0;
+var content=new Array();
+var tmp=0;
+var kkk=-1;
+for (var t = 0; t < urls.length ; t++) {
+    var bucket=urls[t].innerHTML;
+    var length=bucket.indexOf('/');
+    if(length===bucket.length-1){
+        kkk++;
+        content[kkk]=new Array();
+        content[kkk][0]={'url':bucket,'date':date[t].innerHTML.substring(0,10)};
+        tmp=1;
+    }
+    else {
+        content[kkk][tmp++]={'url':bucket.substring(length+1),'date':date[t].innerHTML.substring(0,10)};
+    }
+}
+for (var i = 0; i < content.length; i++) {
+    var conBox=document.createElement("div");
+    conBox.id='conBox'+i;
+    conBox.style='display: inline-block;';
+    box.appendChild(conBox);
+    var item=document.createElement("div");
+    var title=content[i][0].url;
+    item.innerHTML="<div class=title style=margin-top:20px;><h2>"+title.substring(0,title.length-1)+"</h2><hr/></div>";
+    conBox.appendChild(item);
+    for (var j = 1; j < content[i].length && j < showNum+1; j++) {
+        var con=content[i][j].url;
+        var item=document.createElement("li");
+        item.innerHTML="<div class=imgbox id=imgbox><img class=imgitem src="+xmllink+'/'+title+con+" alt="+con+"></div><span>"+con.substring(0,con.length-4)+"</span><p>上传于"+content[i][j].date+"</p>";
+        conBox.appendChild(item);
+    }
+    if(content[i].length > showNum){
+        var moreItem=document.createElement("button");
+        moreItem.className="btn-more-posts";
+        moreItem.id="more"+i;
+        moreItem.value=showNum+1;
+        let cur=i;
+        moreItem.onclick= function (){
+            moreClick(this,cur,content[cur],content[cur][0].url);
+        }
+        moreItem.innerHTML="<span style=display:inline;><strong style=color:#f0f3f6;>加载更多</strong></span>";
+        conBox.appendChild(moreItem);
+    }
+}
