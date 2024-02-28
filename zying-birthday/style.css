@@ -978,6 +978,11 @@ h1, h2, span {
     }
   }
 }
+
+#tada{
+  font-size: 128px;
+}
+
 #hbtext{
   position: absolute;
   top: 200px;
@@ -993,10 +998,10 @@ h1, h2, span {
   margin:auto;
   background: rgba(255, 255, 255, .2);
   text-align: center;
-  font-size: 128px;
+  font-size: 100px;
   font-family: Georgia, serif， system-ui;
   width: 512px;
-  padding: 16px;
+  padding: 48px;
   outline: 16px solid rgba(255, 255, 255, .8);
   border: 0;
   border-radius: 160px;
@@ -1010,6 +1015,13 @@ h1, h2, span {
   transform: perspective(500px) rotateX(360deg);
   background-color: rgba(255, 255, 255, 0.8);;
   box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  text-shadow: 0;
+}
+#psw::placeholder{
+  color: white;
+}
+#psw:focus::placeholder{
+  color: white;
   text-shadow: 0;
 }
 
@@ -1032,3 +1044,4 @@ h1, h2, span {
   position: absolute; /* 绝对定位 */
   box-shadow: 0 0 50px rgba(0, 0, 0, .3);
 }
+
