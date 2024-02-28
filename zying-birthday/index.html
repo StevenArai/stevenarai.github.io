@@ -8,7 +8,14 @@
 
 
     <link rel="stylesheet" href="style.css">
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var bgm=document.getElementById("bgm");
+            if(bgm.paused){
+                bgm.play();
+            }
+        });
+    </script>
 
 </head>
 
@@ -78,7 +85,7 @@
 
     <button id="go" onclick="location.href=&quot;content.html&quot;">👉</button>
 
-    <audio src="./BGM/clip1.ogg" autoplay loop></audio>
+    <audio id="bgm" src="./BGM/clip1.ogg" autoplay loop></audio>
 
 
 </body>
