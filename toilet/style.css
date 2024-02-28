@@ -550,6 +550,7 @@ div.intro-switch-wrapper > div{
 
 
 p {
+    font-size: small;
     text-align: justify;
     line-height: 150%;
 }
@@ -582,7 +583,7 @@ h4 {
 }
 
 figcaption {
-    font-size: 15px;
+    font-size:smaller;
     text-align: center;
 }
 footer {
