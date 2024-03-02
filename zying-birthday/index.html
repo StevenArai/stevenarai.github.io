@@ -1,114 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <title>Happy Birthday!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        
-        .container {
-            width: 300px;
-        }
-        
-        .unlock {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .slider {
-            background-color: #007bff;
-            color: #fff;
-            height: 40px;
-            line-height: 40px;
-            cursor: pointer;
-            border-radius: 20px;
-            margin-top: 20px;
-            transition: margin-left 0.3s ease;
-        }
-        
-        .text {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        
-    </style>
-
-
-    <!--link rel="stylesheet" href="style.css"-->
+    <link rel="stylesheet" href="style.css">
     <script>
-        const slider = document.getElementById('slider');
-        let isDragging = false;
-        
-        slider.addEventListener('mousedown', startDragging);
-        slider.addEventListener('touchstart', startDragging);
-        document.addEventListener('mouseup', stopDragging);
-        document.addEventListener('touchend', stopDragging);
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
-        
-        function startDragging(e) {
-            isDragging = true;
-        }
-        
-        function stopDragging() {
-            isDragging = false;
-        }
-        
-        function drag(e) {
-            if (!isDragging) return;
-        
-            e.preventDefault();
-        
-            let newX;
-            if (e.type === 'mousemove') {
-                newX = e.clientX;
-            } else if (e.type === 'touchmove') {
-                newX = e.touches[0].clientX;
-            }
-        
-            const unlock = document.getElementById('unlock');
-            const unlockRect = unlock.getBoundingClientRect();
-            const sliderWidth = slider.offsetWidth;
-        
-            let newLeft = newX - unlockRect.left - sliderWidth / 2;
-            const maxLeft = unlock.offsetWidth - sliderWidth;
-            if (newLeft < 0) newLeft = 0;
-            if (newLeft > maxLeft) newLeft = maxLeft;
-        
-            slider.style.marginLeft = newLeft + 'px';
-        
-            if (newLeft >= maxLeft) {
-                slider.innerHTML = 'Unlocked!';
-                slider.style.backgroundColor = '#28a745';
-                document.removeEventListener('mousemove', drag);
-                document.removeEventListener('touchmove', drag);
-            }
-        }
-        
-    </script>
-
+        function audioAutoPlay(id){  
+            var audio = document.getElementById(id),
+                play = function(){  
+                    audio.play();  
+                    document.removeEventListener("touchstart",play, false);  
+                };  
+            audio.play();  
+            document.addEventListener("WeixinJSBridgeReady", function () {  
+                play();  
+            }, false);  
+            document.addEventListener('YixinJSBridgeReady', function() {  
+                play();  
+            }, false);  
+            document.addEventListener("touchstart",play, false);  
+        }  
+        audioAutoPlay('audios');
+         
+        </script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="unlock" id="unlock">
-            <div class="text">Slide to Unlock</div>
-            <div class="slider" id="slider"></div>
-        </div>
+
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <bokeh></bokeh>
+    <div class="mobile">最大化查看</div>
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
     </div>
+    <embed id="hbtext" src="happy-birthday.svg" type="image/svg+xml">
+    <span id="tada">🎉</span>
+    <div class="candle">
+        <div id="flame" class="lit"></div>
+    </div>
+
+    <div class="cake"></div>
+    <div class="plate"></div>
+
+
+    <input id="psw" type="text" placeholder="请输入">
+    <button id="go" onclick="location.href=&quot;content.html&quot;">👉</button>
+    <audio src="./clip1.ogg" id="audios" autoplay preload loop="loop"></audio>  
+
+
 </body>
 
 </html>

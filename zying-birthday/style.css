@@ -1044,4 +1044,11 @@ h1, h2, span {
   position: absolute; /* 绝对定位 */
   box-shadow: 0 0 50px rgba(0, 0, 0, .3);
 }
-
+#bgm {
+  display: none;
+  position: relative;
+  top: 1000px;
+  left: 12725px;
+  transform: scale(10000%);
+  overflow: clip;
+}
