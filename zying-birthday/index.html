@@ -5,29 +5,20 @@
     <meta charset="UTF-8">
     <title>Happy Birthday!</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        function audioAutoPlay(id){  
-            var audio = document.getElementById(id),
-                play = function(){  
-                    audio.play();  
-                    document.removeEventListener("touchstart",play, false);  
-                };  
-            audio.play();  
-            document.addEventListener("WeixinJSBridgeReady", function () {  
-                play();  
-            }, false);  
-            document.addEventListener('YixinJSBridgeReady', function() {  
-                play();  
-            }, false);  
-            document.addEventListener("touchstart",play, false);  
-        }  
-        audioAutoPlay('audios');
-         
-        </script>
+
+    
 </head>
 
 <body>
-
+    <div id="barrier" onclick="toggleClickedState(this)">
+        <p>👆</p>
+    </div>
+    <script>
+        function toggleClickedState(element) {
+            element.classList.add("clicked");
+            audioAutoPlay('audios');
+        }
+    </script>
     <bokeh></bokeh>
     <bokeh></bokeh>
     <bokeh></bokeh>
@@ -91,7 +82,24 @@
     <input id="psw" type="text" placeholder="请输入">
     <button id="go" onclick="location.href=&quot;content.html&quot;">👉</button>
     <audio src="./clip1.ogg" id="audios" autoplay preload loop="loop"></audio>  
-
+    <script>
+        function audioAutoPlay(id) {  
+            var audio = document.getElementById(id),
+                play = function() {  
+                    audio.play();  
+                    document.removeEventListener("touchstart", play, false);  
+                };  
+            audio.play();  
+            document.addEventListener("WeixinJSBridgeReady", function() {  
+                play();  
+            }, false);  
+            document.addEventListener('YixinJSBridgeReady', function() {  
+                play();  
+            }, false);  
+            document.addEventListener("touchstart", play, false);  
+        }  
+        audioAutoPlay('audios');
+    </script>
 
 </body>
 

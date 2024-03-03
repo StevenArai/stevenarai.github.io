@@ -985,9 +985,9 @@ h1, h2, span {
 
 #hbtext{
   position: absolute;
-  top: 200px;
-  left: 20px;
-  right: 20px;
+  top: 250px;
+  left: 50px;
+  right: 50px;
 }
 #psw{
   transform: perspective(500px) rotateX(0);
@@ -1051,4 +1051,28 @@ h1, h2, span {
   left: 12725px;
   transform: scale(10000%);
   overflow: clip;
+}
+#barrier{
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; /* 确保它在其他内容上方 */
+}
+#barrier.clicked{
+  display: none;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#barrier p{
+  position: relative;
+  font-size: 100px;
+  text-align: center;
+  width: auto;
+  top: 50%;
 }
