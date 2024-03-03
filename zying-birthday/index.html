@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Happy Birthday!</title>
-    <link rel="stylesheet" href="style.css">
+    <link id="css" rel="stylesheet" href="style.css">
 
     
 </head>
 
-<body>
-    <div id="barrier" onclick="toggleClickedState(this)">
+<body >
+    <div id="page1">
+    <div id="barrier" onclick="toggleClickedState()">
         <p>👆</p>
     </div>
     <script>
-        function toggleClickedState(element) {
+        function toggleClickedState() {
+            element=document.getElementById('barrier')
             element.classList.add("clicked");
             audioAutoPlay('audios');
         }
@@ -75,13 +77,32 @@
         <div id="flame" class="lit"></div>
     </div>
 
-    <div class="cake"></div>
-    <div class="plate"></div>
+    <div class="plate" onclick="toggleClickedState()"></div>
+    <div class="cake" onclick="toggleClickedState()"></div>
 
 
     <input id="psw" type="text" placeholder="请输入">
-    <button id="go" onclick="location.href=&quot;content.html&quot;">👉</button>
-    <audio src="./clip1.ogg" id="audios" autoplay preload loop="loop"></audio>  
+    <button id="go" onclick="switchPage()">👉</button>
+    <script>
+        function switchPage(){
+            var 
+            page1=document.getElementById("page1"),
+            page2=document.getElementById("page2"),
+            css=document.getElementById('css'),
+            bgm=document.getElementById('audios');
+            page1.style.display="none";
+            page2.style.display="block";
+            css.href="style2.css";
+            bgm.src='clip2.ogg';
+
+            var head = document.head;
+            var meta = document.createElement("meta");
+            meta.name = "viewport";
+            meta.content = "width=device-width, initial-scale=1.0";
+            head.appendChild(meta);
+        }
+    </script>
+    <audio src="clip1.ogg" id="audios" autoplay preload loop="loop"></audio>  
     <script>
         function audioAutoPlay(id) {  
             var audio = document.getElementById(id),
@@ -100,7 +121,82 @@
         }  
         audioAutoPlay('audios');
     </script>
-
+    </div>
+<div id="page2">
+    <main>
+        <section>
+            <h2>嗨，张莹</h2>
+            <p>🎂 今天是你的生日。</p>
+        </section>
+        <section style=
+        "background-image:url(./imgs/7d907fede81c21ddd06616abc3fa8dc.jpg);
+        aspect-ratio: 1280 / 1704;"></section>
+        <section>
+            <p>
+                🌟 我想借着这个特别的日子，向你表达我深深感激和赞赏。在我们的友谊中，你给予了我很多，不仅仅是同事间的合作，更是一份真诚的关心和互相扶持。
+            </p>
+        </section>
+        </section>
+        <section style=
+        "background-image:url(./imgs/f08235f08b1553f566ef0f4e045ef6b.jpg);
+        aspect-ratio: 1280 / 1704;"></section>        
+        <section>
+            <p>
+                📸 还记得我们在摄影部培训时的点滴时光吗？每当想起那些一起学习和成长的时刻，我都觉得特别温暖。特别是第一次，你主动站出来帮助我教其他人P图，被别人说是我的“真传弟子”，现在想来还是忍俊不禁。
+            </p>
+        </section>        
+        <section style=
+        "background-image:url(./imgs/d127714ae4b42b885f0905344457e46.jpg);
+        aspect-ratio: 1280 / 1704;"></section>        
+        <section>
+            <p>
+                💬 那次在快递驿站偶遇，你拽住我聊了好久，说到那个无人机，因为推力太小什么都带不起来，已经退货了。我正考虑着做些兼职赚钱，买一个几千块钱的专业无人机去拍摄，效果肯定会很棒呢。
+            </p>
+        </section>
+        <section style=
+        "background-image:url(./imgs/835300e9880dcebd7dcec40172bd947.jpg);
+        aspect-ratio: 1480 / 1112;"></section>        
+        <section>
+            <p>
+                🤗 感谢你一直以来对我的关心和支持。和其他人比起来，你真的特别关注我，比他人更经常出现在我的生活中。每当我需要帮助的时候，你总是不计回报地伸出援手，让我感受到了无比的温暖和安心。而这，真的对我的生活造成了很大的影响。你的乐观和积极向上的态度也给了我很多启发，让我学会了如何看待生活中的困难和挑战。
+            </p>
+        </section>
+        <section style=
+        "background-image:url(./imgs/509248d1846a91b3de695f7b19b5c62.jpg);
+        aspect-ratio: 1080 / 2400;"></section>        
+        <section>
+            <p>
+                💪 我真的很欣赏你勇于接受新事物的态度和快速学习的能力。你总是那么勇敢地面对生活中的挑战，努力克服困难，这真的让我很钦佩。
+            </p>
+        </section>
+        <section style=
+        "background-image:url(./imgs/24626afef76d0785a2cac2fe07c2780.jpg);
+        aspect-ratio: 2276 / 1280;"></section>        
+        <section>
+            <p>
+                🎁 我送给你的生日礼物是动画<em>《来自深渊》</em>的角色立牌。是非常好的动画。你给我的支持与鼓励使我想到这部动画中的角色，由此而发选择了它们作为你的生日礼物。希望你喜欢。
+            </p>
+        </section>
+        <section style=
+        "background-image:url(./imgs/f3f34f37a5e9d79039e0b4ab807b719.jpg);
+        aspect-ratio: 1593 / 1196;"></section>        
+        <section>
+            <p>
+                最后，祝你生日快乐！愿你的每一天都充满阳光和快乐，愿我们的友谊永远长存，愿我们一直保持着彼此的真诚和关怀。一直以来，感谢有你。❤️
+            </p>
+        </section>
+        <section>
+            <h2>来自深渊</h2>
+            <p>如果你愿意尝试一下这部动画，可以点击这里观看👇</p>
+            <button class="primary" onclick="location.href=&quot;http://www.iot2ai.top/cgi-bin/wxit/open.html?https://www.yinhuadm.cc/p/5650-1-1.html&quot;">打开浏览器</button>
+        </section>
+    </main>
+    <footer style=
+    "background-image:url(./imgs/head.jpg);
+    aspect-ratio: 1 / 1;">
+        <!-- 可以在这里添加页脚内容 -->
+        <h3>&copy; 2024    Steven Arai</h3>
+    </footer>
+</div>
 </body>
-
 </html>
