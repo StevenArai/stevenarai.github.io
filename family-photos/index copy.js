@@ -38,6 +38,8 @@ window.onload = function () {
         loadingPercentage.innerText = `${progress}%`;
 
         if (loadedImages === totalImages) {
+            
+            document.getElementById("square").style.display = "flex";
             setTimeout(() => {
                 loadingMask.style.opacity = 0;
                 loadingMask.style.pointerEvents = "none";
