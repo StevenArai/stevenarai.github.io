@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./index.js"></script>
+    <title>永不消逝的回忆</title>
+    <style>
+        body {
+            background-color: #000;
+            transition: background-color 0.4s ease-in-out;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            max-width: 15%;
+            height: auto;
+            margin: 20px 10px;
+            box-shadow: 0 0 20px rgba(0.5, 0, 0, 0.5);
+            transform: rotateZ(0deg) rotateY(360deg);
+            transition: transform 0.8s cubic-bezier(0, 1, 0, 1), max-width 0.4s cubic-bezier(0.5, 0.5, 0, 1), top 0.4s cubic-bezier(0.5, 0.5, 0, 1), left 0.4s cubic-bezier(0.5, 0.5, 0, 1);
+        }
+
+        #showing {
+            width: 100%;
+            max-width: 15%;
+            position: fixed;
+            height: auto;
+            margin: 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            filter: blur(0px);
+        }
+
+        #image {
+            perspective: 500px;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            z-index: 5;
+        }
+
+        #gallery-slink {
+            top: 0;
+            left: 0;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            perspective: 1000px;
+            filter: blur(25) brightness(0) saturate(0);
+        }
+
+        #gallery-warp {
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            transform: translateZ(-0px);
+            transition: transform 0.8s cubic-bezier(0, 0.5, 0, 1);
+            display: block;
+            margin: 0 auto;
+            z-index: 1;
+            overflow: overlay;
+        }
+
+        @media (max-width: 768px) {
+            img {
+                width: 100%;
+                max-width: 40%;
+                margin: 20px 10px;
+                transform: rotateZ(5deg) rotateY(360deg);
+                max-width: 40%;
+            }
+
+            #showing {
+                width: 100%;
+                max-width: 40%;
+            }
+        }
+
+        a {
+            padding: 10px;
+            text-decoration: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            font-weight: bold;
+            outline: #555 1px solid;
+            border-radius: 8px;
+            border-width: 0;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: all 0.8s cubic-bezier(0, 0.5, 0, 1);
+        }
+        a.ai{
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            border-radius: 0px;
+            font-weight: normal;
+            width: 40%;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            background-color: transparent;
+        }
+
+
+        a#download {
+            position: fixed;
+            bottom: 5vh;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(90deg);
+            z-index: 5;
+        }
+
+        #loading-mask {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loading-bar-container {
+            display: block;
+            width: 80%;
+            max-width: 400px;
+            background-color: #333;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: white;
+        }
+
+        #loading-bar {
+            height: 20px;
+            background-color: #fff;
+            width: 0%;
+            border-radius: 8px;
+            transition: width 0.1s ease;
+        }
+
+        #loading-cover{
+            border-radius: 8px;
+            filter: sepia(1);
+        }
+
+        div#square {
+            margin: 40px 0 200px 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div id="loading-mask">
+        <img id="loading-cover" src="square/34-colored.png" style="transform: none;display: block;" alt="Eternal">
+        <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+        </div>
+    </div>
+    <div id="image"><a id="download"> ▼ 下载原图 </a></div>
+    <div id="gallery-slink">
+        <div id="gallery-warp">
+            <div class="gallery" id="portrait"></div>
+            <div class="gallery" id="landscape"></div>
+            <div class="gallery" id="square">
+                <a class="ai" download="Eternal" href="./square/34-colored.png"><img src="square/thumb/34-colored.jpg" alt="forever" style="transform: none; width: 100%; max-width: none; margin:0;"/></a><a class="ai" download="Eternal-raw" href="./square/34.png"><div><h2 style="margin-top: 0;">这张图片<br>使用AI技术<br>恢复了色彩</h2><p>轻触<b>这里</b>以下载<br>原版黑白照片</p></div></a>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./index.js"></script>
+    <title>Responsive Gallery</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+            max-width: 15%;
+            height: auto;
+            margin: 20px 10px;
+            box-shadow: 0 0 20px rgba(0.5, 0, 0, 0.5);
+            transform: rotateZ(0deg) rotateY(360deg);
+            transition:
+                transform 0.8s cubic-bezier(0, 1, 0, 1),
+                max-width 0.4s cubic-bezier(0.5, 0.5, 0, 1),
+                top 0.4s cubic-bezier(0.5, 0.5, 0, 1),
+                left 0.4s cubic-bezier(0.5, 0.5, 0, 1)
+                /*
+                top 0.4s cubic-bezier(0,1,0,0.5),
+                left 0.4s cubic-bezier(0,1,0,0.5),*/
+                ;
+        }
+
+        #showing {
+            width: 100%;
+            max-width: 15%;
+            position: fixed;
+            height: auto;
+            margin: 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            filter: blur(0px);
+        }
+
+
+        #image {
+            perspective: 500px;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            z-index: 5;
+        }
+
+
+        #gallery-slink {
+            top: 0;
+            left: 0;
+            /*width: 100vw;*/
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            perspective: 1000px;
+        }
+
+        #gallery-warp {
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            /*width: 100vw;*/
+            height: 100vh;
+            transform: translateZ(-0px);
+            transition: transform 0.8s cubic-bezier(0, 0.5, 0, 1);
+            display: block;
+            margin: 0 auto;
+            z-index: 1;
+            overflow: overlay;
+        }
+
+        @media (max-width: 768px) {
+            img {
+                width: 100%;
+                max-width: 40%;
+                margin: 20px 10px;
+                transform: rotateZ(5deg) rotateY(360deg);
+                max-width: 40%;
+            }
+
+            #showing {
+                width: 100%;
+                max-width: 40%;
+            }
+        }
+
+        a {
+            padding: 10px;
+            text-decoration: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            font-weight: bold;
+            outline: #555 1px solid;
+            border-radius: 8px;
+            border-width: 0;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: all 0.8s cubic-bezier(0, 0.5, 0, 1);
+        }
+
+        a:active {
+            box-shadow: 0 0 1;
+            transform: translateY(2px);
+        }
+
+        a#download {
+            position: fixed;
+            bottom: 5vh;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(90deg);
+            z-index: 5;
+        }
+
+        #loading-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loading-bar-container {
+            width: 80%;
+            max-width: 400px;
+            background-color: #333;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: white;
+        }
+
+        #loading-bar {
+            height: 20px;
+            background-color: #76c7c0;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.1s ease;
+        }
+
+        #loading-percentage {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-mask">
+        <div id="loading-bar-container">
+            <div id="loading-bar"></div>
+            <div id="loading-percentage">0%</div>
+            <button onclick="updateProgress(0);">LAUNCH</button>
+        </div>
+    </div>
+    <div id="image"><a id="download"> ▼ 下载原图 </a></div>
+    <div id="gallery-slink">
+        <div id="gallery-warp">
+            <div class="gallery" id="portrait"></div>
+            <div class="gallery" id="landscape"></div>
+        </div>
+    </div>
+</body>
+
+</html>
