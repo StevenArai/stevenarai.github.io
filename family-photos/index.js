@@ -19,6 +19,7 @@ var lightUpCount = 0;
 window.onload = function () {
     console.log('%c __  __     ______     ______  \n/\\ \\_\\ \\   /\\  __ \\   /\\__  _\\ \n\\ \\  __ \\  \\ \\  __ \\  \\/_/\\ \\/ \n \\ \\_\\ \\_\\  \\ \\_\\ \\_\\    \\ \\_\\ \n  \\/_/\\/_/   \\/_/\\/_/     \\/_/ \n                               \n%cDEBUG CONSOLE\tDEBUG MODE = %cDISABLED\n%cGithub: @StevenArai', "color:orange", "color:skyblue", "color:orange", "color:violet;font-size:24px");
 
+    document.getElementById("square").style.display = "flex";
     const totalImages = 175;
     let loadedImages = 0;
     const loadingBar = document.getElementById("loading-bar");
@@ -30,7 +31,6 @@ window.onload = function () {
         this.id.replace(/[^\d]/g, " ")<6?lightUpCount++:0;
         loadedImages++;
         const progress = Math.floor((loadedImages / totalImages) * 100);
-        console.log(loadingCover);
         loadingCover.style.filter = `sepia(${1 - progress / 100})`;
         setImageStyle(loadingBar, { width: `${progress}%` });
         document.title = `正在加载 - ${progress}%`;
