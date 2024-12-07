@@ -133,9 +133,9 @@ const preImages=[
         function ClickEvent(){
         nextMouse.style.opacity="0";
         const textbox1=[
-        ["パップの人形劇場へbようこそ！","あり"],
-        ["本日の演目はb「駆け出し勇者のデバフ祭り！」b楽しんでいってね！","あり"],
-        ["(ドラッグ＆ドロップでb魔法を唱えることができるよ！)","なし"],
+        ["欢迎来到小狗玩偶剧院！","あり"],
+        ["今天的节目是《初出茅庐的英雄的Debuff庆典！》享受吧！","あり"],
+        ["(通过拖放即可施展b魔法！)","なし"],
       ];
         
         clickToNext.style.pointerEvents="none"
@@ -148,7 +148,7 @@ const preImages=[
         }
           
         }
-        setTimeout(() => {textOrder("やぁ！bキミが噂の勇者クン？","あり")
+        setTimeout(() => {textOrder("嘿！b你就是传闻中的勇者君？","あり");
         clickToNext.addEventListener('click',ClickEvent);
         }, 1000)
         // 上の1000秒はメッセージスピードによって変えるべき
@@ -385,17 +385,17 @@ const preImages=[
         charm_back.style.opacity="0.2"
         charm_back.style.pointerEvents="none"
         face.src="img/face00.png";
-        textOrder("ふふふ…b毒の魔法はいかがかな？");
+        textOrder("呵呵呵呵……b毒魔法怎么样？");
       }
-      if(poisonNum===2){textOrder("苦しそうだね。b降参しちゃってもいいんだよ？")}
+      if(poisonNum===2){textOrder("看起来很痛苦。 b 可以投降吗？")}
       if(poisonNum===3){face.src="img/face07.png";
-        textOrder("さっさと降参しちゃいなよ。bこのままだとb本当に死んじゃうよ？")}
+        textOrder("不要立即投降。再这样下去，你真的会死掉吧？")}
       if(poisonNum===4){textOrder("…。")}
       if(poisonNum===5){
         face.src="img/face08.png";
         guard.style.display="block";
         setTimeout(()=>{
-         textOrder("あ～あb本当に死んじゃった…。","あり") 
+         textOrder("啊～啊b真的死掉了……。","あり"); 
         },1000)
         
       face.src="img/face08.png";
@@ -408,10 +408,10 @@ const preImages=[
         if(i===1){
           face.src="img/face00.png";
           kemoshota.src = images[poisonNum+1]
-          textOrder("ふふ…bそんなに焦らなくても大丈夫だよ。","あり")
+          textOrder("呵呵…b不用那么着急，没关系的。","あり");
           }
         if(i===2){
-          textOrder("ボクがキミにbぴったりの肉体をb用意してあげる！","あり")
+          textOrder("我会为你准备b最合适的身体！","あり");
           }
         if(i===3){
           text.textContent=" ";
@@ -426,7 +426,7 @@ const preImages=[
           clickToNext.style.display="none"
           setTimeout(()=>{
             incbus="did"
-            textOrder("Ending1b～転生したら淫魔だった件～","なし")},3500)  
+            textOrder("结局1b～转生后变成淫魔的事情～","なし");},3500)  
           setTimeout(()=>{kemoshota.src = images[poisonNum+2]
           clickToNext.removeEventListener('click',ClickEvent)
           
@@ -535,7 +535,7 @@ const onMouseMove = e=>{
       stone_back.style.pointerEvents="none"
       face.src="img/face00.png";
       back02.src="img/back03.png";
-      textOrder("もしも～し、勇者クン～？bふふ…無防備な寝顔も可愛いなぁ。")
+      textOrder("喂喂~，勇者君~？呵呵……毫无防备的睡脸也很可爱呢。")
       }
       sleep.style.top="800px"
       sleep.style.left="985px"
@@ -636,40 +636,40 @@ poison2.onmouseup = e=>{
         charm_back2.style.opacity="0.2"
         charm_back2.style.pointerEvents="none"
      face.src="img/face00.png";
-     textOrder("ふふふ…b悪夢を見せてあげるよ。")};
+     textOrder("呵呵...b 我会给你看一场噩梦的。")};
     if(poisonNum===2){
-      textOrder("ほらほらb早く起きないとb死んじゃうよ～？")
+      textOrder("快，快！再不快点醒过来，你就死定了！")
     };
     if(poisonNum===3){
       
       face.src="img/face07.png";
-      textOrder("う～ん、このまま死なせちゃうのもbちょっと、もったいないかも…","あり")
+      textOrder("嗯～，让你死掉也有点，太可惜了……","あり");
       let i=0
         function ClickEvent(){
         nextMouse.style.opacity="0";
         const textbox1=[
-         ["そうだ…キミ、可愛いしbせっかくだからbボクのコレクションにb加えてあげるよ。","あり"],//1
-        ["それじゃ、眠ってる間にb繕っちゃおうかな。","あり"],//2
-        ["                                                       ","あり"],//3
-        ["う～ん","あり"],//4
-        ["あらら、起きちゃったか…。","あり"],//5
-        ["おはよう勇者クン。b気分はどうかな？","あり"],//6
-        ["何これぇぇ！？","あり"],//7
-        ["戻して！b戻してぇぇ！","あり"],//8
-        ["いいけど…。b","あり"],//9
-        ["本当に戻しちゃっていいの？","あり"],//10
-        ["あっ、あっ…あっ……。","あり"],//11
-        ["ふふ…bすぐ終わるからbいい子にしててね。","あり"],//12
-        ["                               ","あり"],//13
-        ["はいできた。","あり"],//14
-        ["ふふふ…bかわいいね、勇者クン。","あり"],//15
-        ["ふわふわでbそれにとってもいい匂い…b抱き枕にちょうどいいや。","あり"],//16
-        ["ふふ…お股を撫でるとb微かに震えるね…","あり"],//17
-        ["心配しないで。bたとえ勇者じゃなくなってもbボクがキミのことbいっぱい愛してあげる。","あり"],//18
-        ["これから毎日一緒に寝ようね。","あり"],//19
-        [" ",""]
-        
-      ];
+          ["对了…你真可爱，b既然如此，我就把你加到我的收藏里吧。", "あり"], // 1
+          ["那么，在你睡着的时候，我就来修补一下吧。", "あり"], // 2
+          ["                                                       ", "あり"], // 3
+          ["嗯～", "あり"], // 4
+          ["哎呀，醒了啊…。", "あり"], // 5
+          ["早上好，勇者君。b感觉怎么样？", "あり"], // 6
+          ["这是什么啊！？", "あり"], // 7
+          ["还给我！b还给我啊！", "あり"], // 8
+          ["可以啊…。b", "あり"], // 9
+          ["真的要还给你吗？", "あり"], // 10
+          ["啊，啊…啊……。", "あり"], // 11
+          ["呵呵…b很快就好了，b乖乖的等着吧。", "あり"], // 12
+          ["                               ", "あり"], // 13
+          ["好了，做好了。", "あり"], // 14
+          ["呵呵呵…b真可爱，勇者君。", "あり"], // 15
+          ["软绵绵的，而且还特别香…b正好可以做抱枕呢。", "あり"], // 16
+          ["呵呵…摸摸下体时，b轻微地颤抖了呢…", "あり"], // 17
+          ["别担心。b即使你不再是勇者，b我也会一直爱你很多。", "あり"], // 18
+          ["从今以后，我们每天一起睡吧。", "あり"], // 19
+          [" ", ""]
+      ]
+      ;
         
         clickToNext.style.pointerEvents="none"
         textOrder(textbox1[i][0],textbox1[i][1])
@@ -758,7 +758,7 @@ poison2.onmouseup = e=>{
             nuigurumi="did";
             
             guard2.style.display="none";
-            textOrder("Ending2b～人形使いのお気に入り～","なし")},2000)        
+            textOrder("结局2b～人偶使者的最爱～","なし");},2000)        
             clickToNext.style.display="none"
         setTimeout(()=>{clickToNext.removeEventListener("click",ClickEvent);
          },2000)  
@@ -873,12 +873,12 @@ charm2.onmouseup = e=>{
       poison_back2.style.pointerEvents="none"
         
      face.src="img/face00.png";
-     textOrder("僕が素敵な夢をbプレゼントしてあげる！")};
+     textOrder("我会给你一个美梦作为礼物！")};
     if(charmNum===2){
-      textOrder("よしよし…bしっかり魔法がb効いてるようだね。")
+      textOrder("好吧，好吧……看起来魔法正在发挥作用。")
     };
     if(charmNum===3){
-      textOrder("どうかな、勇者クン？bイきそう？bもうすぐ、イきそう？","")}
+      textOrder("怎么样，勇者君？b快要来了？b快要高潮了吗？","");}
     if(charmNum===4){
         guard2.style.display="block"
         charm_back2.style.opacity="0.2"
@@ -908,7 +908,7 @@ charm2.onmouseup = e=>{
       setTimeout(() => {
         
         face.src="img/face00.png"
-        textOrder("あ～あ、パンツもズボンもbびちょびちょにbなっちゃったねぇ。","あり")
+        textOrder("啊～啊，裤子和内裤b都湿透了呢。","あり");
       
       
         let i=0
@@ -920,11 +920,11 @@ charm2.onmouseup = e=>{
         if(i===1){
           charmNum++
           kemoshota.src = images[charmNum+1];
-          textOrder("うわ…すごい量…。","あり")
+          textOrder("哇…好大的量……。","あり");
         };
-        if(i===2){textOrder("せっかくだしbこれ、有効活用させてbもらおうかな。","あり");}
+        if(i===2){textOrder("既然这样，那我就把b这些有效利用一下。","あり");;}
         if(i===3){
-          textOrder("勇者クンの精子とb魔物の卵を混ぜ合わせて…","あり")
+          textOrder("将勇者君的精子和b魔物的卵混合在一起……","あり");
         face.src="img/face05.png";
         black.classList.add("active2")
         statusBox.style.opacity="0"
@@ -934,7 +934,7 @@ charm2.onmouseup = e=>{
         charmStatusNum.style.opacity="0"
         };
         if(i===4){
-          textOrder("ふふ…ボクって天才かも。","あり")
+          textOrder("呵呵…我是不是天才。","あり");
           face.src="img/face04.png";
         
         };
@@ -947,7 +947,7 @@ charm2.onmouseup = e=>{
               text.style.opacity="1"
               face.style.opacity="1"
               face.src="img/face00.png";
-              textOrder("おはよう勇者クンb気分はどうかな？","あり");
+              textOrder("早上好，勇者君b，感觉怎么样？","あり");;
               black.classList.add("active3");
           }, 1000);
         
@@ -958,23 +958,23 @@ charm2.onmouseup = e=>{
           face.style.opacity="0"
           text.style.color="yellow";
           text.style.left="100px";
-          textOrder("うぅぅ…。","あり");
+          textOrder("呜呜呜……。","あり");;
         }
         if(i===7){
           charmNum++
           kemoshota.src=images[charmNum+1]
-          textOrder("！？","あり");         
+          textOrder("！？","あり");;         
         }
         if(i===8){
           charmNum++
           kemoshota.src=images[charmNum+1]
-          textOrder("何これ？b放して！bというか僕の服は！？","あり");         
+          textOrder("这是什么？b放开！b我的衣服呢！？","あり");;         
         }
         if(i===9){
           face.style.opacity="1"
           text.style.left=null;
           text.style.color="white"
-          textOrder("邪魔だから処分しちゃった。bそれより体の異変に気づかない？","あり")
+          textOrder("因为碍事所以处理掉了。b你没发现身体上的异变吗？","あり");
           };
         if(i===10){
           face.style.opacity="0"
@@ -982,17 +982,17 @@ charm2.onmouseup = e=>{
           text.style.color="yellow"
           charmNum++
           kemoshota.src=images[charmNum+1]
-          textOrder("何だこれ…。bお腹の中で何か動いて…。","あり")
+          textOrder("这是什么……。b肚子里有什么东西在动……。","あり");
           }
 
         if(i===11){
           face.style.opacity="1"
           text.style.left=null;
           text.style.color="white"
-          textOrder("キミが寝てる間にb魔物の卵を植え付けてbおいたんだ。","あり");
+          textOrder("在你睡觉时，b我把魔物的卵植入了b你的体内。","あり");;
         }
         if(i===12){
-          textOrder("宿主の魔力を吸ってb成長する卵だよ。","あり")
+          textOrder("这是吸取宿主魔力而b成长的卵。","あり");
           flash1.classList.remove("active");
           flash2.classList.remove("active");
           flash3.classList.remove("active");
@@ -1005,7 +1005,7 @@ charm2.onmouseup = e=>{
           poisonSound.play()
           charmNum++
           kemoshota.src=images[charmNum+1]
-          textOrder("ほら、始まったみたいだよ？","あり");
+          textOrder("看吧，好像开始了？","あり");;
         }
         if(i===14){
           useSpecialFlash(2,"fuchsia");
@@ -1015,7 +1015,7 @@ charm2.onmouseup = e=>{
           kemoshota.src=images[charmNum+1]
 
           face.src="img/face01.png";
-          textOrder("分かる？勇者クン？","あり")
+          textOrder("明白吗？勇者君？","あり");
         
         }
         if(i===15){
@@ -1026,7 +1026,7 @@ charm2.onmouseup = e=>{
           kemoshota.src=images[charmNum+1]
 
           face.src="img/face01.png";
-          textOrder("魔物から人々を守ってきたキミがb今度は魔物を産み出す苗床にbなるんだ。","あり")
+          textOrder("你曾经为了保护人们免受魔物侵害，而b现在你将成为魔物的温床，b孕育出魔物。","あり");
         }
 
         if(i===16){
@@ -1040,7 +1040,7 @@ charm2.onmouseup = e=>{
           face.style.opacity="0"
           text.style.color="yellow";
           text.style.left="100px"
-          textOrder("ううう…")
+          textOrder("呜呜呜……")
          setTimeout(()=>{ 
           flash3.classList.remove("active");
             useSpecialFlash(1,"fuchsia");
@@ -1056,7 +1056,7 @@ charm2.onmouseup = e=>{
             poisonSound.play()
             charmNum++
             kemoshota.src=images[charmNum+1]
-            textOrder("あああ…")
+            textOrder("啊啊…")
 
           },1200*2)
           setTimeout(()=>{ 
@@ -1072,16 +1072,16 @@ charm2.onmouseup = e=>{
             face.style.opacity="1";
             text.style.left=null;
             text.style.color="white";
-            textOrder("ふふ…お疲れ様","あり");
+            textOrder("呵呵…辛苦了","あり");;
           },1200*4)
 
         }
         if(i===17){
-          textOrder("勇者と魔物の間にb産まれた子ども…","あり");
+          textOrder("勇者和魔物之间，b诞生的孩子……","あり");;
         }
         if(i===18){
           face.src="img/face06.png"
-          textOrder("卵が孵るのが楽しみだなぁ。","あり");
+          textOrder("真期待卵孵化的时刻呢。","あり");;
           black.classList.remove("active2");
           black.classList.remove("active3");
         }
@@ -1094,7 +1094,7 @@ charm2.onmouseup = e=>{
             text.style.opacity="1"
             egg="laid"
             guard2.style.display="none"
-            textOrder("Ending5b～魔物の苗床～","なし");
+            textOrder("结局5b～魔物的温床～","なし");;
             clickToNext.removeEventListener('click',ClickEvent);  
 
           },2000)
@@ -1209,21 +1209,21 @@ const onMouseMove = e=>{
         charm_back.style.opacity="0.2"
         charm_back.style.pointerEvents="none"
       face.src="img/face03.png";
-      textOrder("出でよ、モノリス！");}
+      textOrder("出来吧、モノリス（这里不太会翻译x，或许是“石化君”?）！");}
     if(stoneNum===2){
       back02.src="img/back02.png";
       face.src="img/face00.png";
-      textOrder("ふふ…捕まえた。","あり");
+      textOrder("呵呵…抓住了。","あり");;
       let i=0
       function ClickEvent(){
       nextMouse.style.opacity="0"
       clickToNext.style.pointerEvents="none"
       i++
       if(i===1){
-        textOrder("ねぇ、勇者クンbゾクゾクするでしょう？","あり");
+        textOrder("嘿，勇者君b，感到兴奋了吗？","あり");;
         }
       if(i===2){
-        textOrder("ボクがキミをb最高の芸術作品にしてあげる！","なし");
+        textOrder("我会把你变成b最棒的艺术品！","なし");;
         }}
         clickToNext.addEventListener('click',ClickEvent);
         charm3.style.display="none"
@@ -1233,13 +1233,13 @@ const onMouseMove = e=>{
         charm_back2.style.display="none"   
         charm_back.style.display="none"   
       }
-    if(stoneNum===3){textOrder("ガーゴイル…bいや、妖狐の石像なんてどうかな？")
+    if(stoneNum===3){textOrder("石鬼面……b不，狐妖石像怎么样？")
       charm_back3.style.opacity="0.2";
       charm_back3.style.pointerEvents="none";
     }
-    if(stoneNum===4){textOrder("分かる？bキミはボクの居城を守るb石の怪物になるんだよ。")}
-    if(stoneNum===5){textOrder("ほらほらbどんどん変わってしまうよ？")}
-    if(stoneNum===6){textOrder("ふふ…bもうピクリとも動けないね。","あり");
+    if(stoneNum===4){textOrder("你明白吗？你将成为守护我的城堡的B石头怪物。")}
+    if(stoneNum===5){textOrder("你看，你看，变化越来越大吧？")}
+    if(stoneNum===6){textOrder("呵呵…b已经一动不动了呢。","あり");;
       stone_back.style.pointerEvents="none"
       let i=0
       function ClickEvent(){
@@ -1251,7 +1251,7 @@ const onMouseMove = e=>{
         poisonSound.play()
         face.src="img/face02.png";
         kemoshota.src = images[stoneNum+i]
-        textOrder("コネて固めてb身も心も少しずつb作り変えてあげる。","あり")
+        textOrder("把它连接起来，固定住，b一点一点地改变你的身体和心灵。","あり");
         }
       if(i===2){
         statusBox.style.opacity="0"
@@ -1261,7 +1261,7 @@ const onMouseMove = e=>{
         charmStatusNum.style.opacity="0"
         useFlash();
         face.src="img/face03.png";
-        textOrder("さぁ！b生まれ変わろうね！"," ")
+        textOrder("来吧！b重新诞生吧！"," ");
         guard2.style.display="block";
         setTimeout(()=>{
           poisonSound.currentTime= 0;
@@ -1279,25 +1279,25 @@ const onMouseMove = e=>{
               poisonSound.play()
               useFlash();
               kemoshota.src = images[stoneNum+i+2];
-              textOrder(" ","あり")},4650);
+              textOrder(" ","あり");},4650);
         
         
         }
       if(i===3){
         face.src="img/face00.png";
-        textOrder("うんうん！bとっても格好いいよ！","あり");
+        textOrder("嗯嗯！b真帅！","あり");;
         guard2.style.display="none"
       }
       if(i===4){
-        textOrder("キミのお仕事はb門の見張りについてb侵入者を排除すること。","あり");
+        textOrder("你的工作是b守卫大门，b消除入侵者。","あり");;
       }
       if(i===5){
-        textOrder("あっ、でも…b可愛い子がいたらb殺さず生け捕りにしてbほしいかな。","あり");
+        textOrder("啊，等等……b如果有可爱的女孩，b希望你不杀她，b活捉她。","あり");;
       }
       if(i===6){
         guard2.style.display="block"
         face.src="img/face08.png";
-        textOrder("それじゃ、よろしく頼むよ。b\"元\"勇者クン♪","あり");}
+        textOrder("那就拜托了，b\"前进！\"勇者君♪","あり");}
       if (i===7){
         textOrder(" ");
         text.style.left="100px"
@@ -1312,7 +1312,7 @@ const onMouseMove = e=>{
         setTimeout(()=>{
           youko="did"
           guard2.style.display="none"
-          textOrder("Ending3b～物言わぬ門番～","なし")},4000)  
+          textOrder("结局3b～无言的门卫～","なし");},4000)  
         setTimeout(()=>{clickToNext.removeEventListener('click',ClickEvent)
        },2000)  }
        
@@ -1421,20 +1421,20 @@ const onMouseMove = e=>{
     if(charmNum===1){
       stone_back.style.opacity="0.2";
       stone_back.style.pointerEvents="none";
-      textOrder("テーマは「性の目覚め」…bやっぱりエロスと芸術はb切っても切り離せないよね。"); }
+      textOrder("主题是“性觉醒”……毕竟爱欲和艺术是密不可分的。"); }
       
-    if(charmNum===2){textOrder("魅了の魔法が効いてるね。bとってもいい雰囲気だよ～。")}
+    if(charmNum===2){textOrder("结界的魔力正在发挥作用。 b这气氛真的很好。")}
     if(charmNum===3){
       face.src="img/face11.png";
-      textOrder("さぁ、服も脱いじゃおうか。","");      
+      textOrder("来吧，脱下衣服吧。","");;      
      } 
      if(charmNum===4){
       face.src="img/face00.png";
-      textOrder("ふふ…えっちだねぇ。bあとは、ポーズもちょっとb変えないとね。","");      
+      textOrder("呵呵…好色情呢。b然后，我们还得稍微b改变一下姿势。","");;      
      }
      if(charmNum===5){
       face.src="img/face00.png";
-      textOrder("さぁ…もっとあさましい姿をbボクにみせてよ。","");      
+      textOrder("来吧……给我看更可耻的模样。","");;      
      } 
      if(charmNum===6){
       guard2.style.display="block"
@@ -1443,7 +1443,7 @@ const onMouseMove = e=>{
       face.src="img/face02.png";
       stoneNum++
       stoneStatusNum.textContent=`${stoneNum}`;
-      textOrder("もっと…",);      
+      textOrder("更多…",);      
       setTimeout(()=>{
         poisonSound.currentTime= 0;
         poisonSound.play()
@@ -1452,7 +1452,7 @@ const onMouseMove = e=>{
         stoneStatusNum.textContent=`${stoneNum}`;
         charmNum++
         kemoshota.src=images[charmNum]
-        textOrder("もっとだ!!",);    
+        textOrder("还要更多!!",);    
         },1200*1)
         setTimeout(()=>{
           poisonSound.currentTime= 0;
@@ -1462,7 +1462,7 @@ const onMouseMove = e=>{
           stoneStatusNum.textContent=`${stoneNum}`;
           charmNum++
           kemoshota.src=images[charmNum]
-          textOrder("さぁ…!",);    
+          textOrder("现在…!",);    
           },1200*2)
           setTimeout(()=>{
             poisonSound.currentTime= 0;
@@ -1473,7 +1473,7 @@ const onMouseMove = e=>{
             charmNum++
             kemoshota.src=images[charmNum]
             face.src="img/face03.png";
-            textOrder("よがり狂え!!",);    
+            textOrder("疯狂吧!!",);    
             },1200*3)
         setTimeout(()=>{
           poisonSound.currentTime= 0;
@@ -1517,7 +1517,7 @@ const onMouseMove = e=>{
       },1200*7)
       setTimeout(()=>{
         face.src="img/face00.png"
-        textOrder("あらら…bイく寸前に固まっちゃったね。","あり");
+        textOrder("哎呀…b快要到达时居然僵硬了。","あり");;
         
         let i=0
         function ClickEvent(){
@@ -1526,19 +1526,19 @@ const onMouseMove = e=>{
         i++
         if(i===1){
           face.src="img/face04.png"
-          textOrder("すごいや…。bぬぐっても、ぬぐってもb溢れてくる…","あり")}
+          textOrder("真厉害……b擦掉也擦掉不完，b不停地溢出来……","あり");}
         if(i===2){
           face.src="img/face00.png"
-          textOrder("よかったね勇者クン。bイく直前の気持ち良さがbこれから永遠に続くんだよ。","あり")}
+          textOrder("太好了，勇者君。b那种快要到达的感觉，b将会永远持续下去。","あり");}
         if(i===3){
           face.src="img/face08.png"
-          textOrder("いや…イきたくてもbイけないままだからb生き地獄と言った方がbいいのかな…。","あり")}
+          textOrder("不……虽然想要去，但b还是无法到达，b是不是应该叫做生死地狱才对……。","あり");}
         if(i===4){
           face.src="img/face00.png"
-          textOrder("まぁ、いいや。bキミは展示ルームのb一番目立つ場所に飾ってあげる。","あり")}
+          textOrder("算了，没关系。b我会把你摆在展览厅最显眼的地方。","あり");}
         if(i===5){
           face.src="img/face00.png"
-          textOrder("勇者クンの恥ずかしい姿…b皆にいっぱい見てもらおうね。","あり")} 
+          textOrder("勇者君的羞耻模样……b让大家好好看看吧。","あり");} 
         if(i===6){
           textOrder(" ")
           face.style.opacity="0"
@@ -1557,7 +1557,7 @@ const onMouseMove = e=>{
               guard2.style.display="none";
               relief="did"
               text.style.left="100px"
-              textOrder("Ending6b～淫乱勇者のレリーフ～","なし")},3500)
+              textOrder("结局6b～淫乱勇者的浮雕～","なし");},3500)
         }
         }
         
@@ -1691,7 +1691,7 @@ const onMouseMove = e=>{
       stone_back.style.pointerEvents="none"
 
       face.src="img/face07.png";
-      textOrder("ねぇ…b勝負の最中に悪いんだけど…","あり");
+      textOrder("嘿……b打扰你们的战斗真是抱歉……","あり");;
       
       
       let i=0
@@ -1702,18 +1702,18 @@ const onMouseMove = e=>{
       if(i===1){
         kemoshota.src="img/charm01.png";
         face.src="img/face00.png";
-        textOrder("勃ってるよ。","あり");
+        textOrder("竖起来了。","あり");;
         }
       if(i===2){
         kemoshota.src="img/charm02.png";
-        textOrder("あはは、隠さないでよ。b勇者クンの恥ずかしいところbもっと見たいなぁ～。","なし");
+        textOrder("啊哈，不要躲藏哦。b我更想看你勇者君的羞耻模样呢～。","なし");;
         }}
         clickToNext.addEventListener('click',ClickEvent);    
     } 
-    if(charmNum===2){textOrder("苦しそうだね。bオナニーしちゃってもbいいんだよ？")}
+    if(charmNum===2){textOrder("看起来很痛苦。如果我停下自慰可以吗？")}
     if(charmNum===3){
       face.src="img/face07.png";
-      textOrder("へぇ…b意外と耐えるねぇ。","あり");
+      textOrder("哎……b你居然能忍耐住。","あり");;
       let i=0
       function ClickEvent(){
       nextMouse.style.opacity="0"
@@ -1721,7 +1721,7 @@ const onMouseMove = e=>{
       i++
       if(i===1){
         face.src="img/face10.png";
-        textOrder("それじゃbもっと強力な魔法をbかけてあげる。",);
+        textOrder("那么，我就对你施展b更强大的咒语b吧。",);
         }
       }
         clickToNext.addEventListener('click',ClickEvent);      
@@ -1732,7 +1732,7 @@ const onMouseMove = e=>{
       back02.src="img/back02.png"
       face.style.opacity="0";
       text.style.left="100px"
-      textOrder("さ、勇者クン…b顔をよく見せて。","あり")
+      textOrder("来，勇者君…b给我好好看看你的脸。","あり");
       
       charm_back.style.pointerEvents="none"
       let i=0
@@ -1743,7 +1743,7 @@ const onMouseMove = e=>{
       if(i===1){
         charmNum++
         kemoshota.src = images[charmNum];
-        textOrder("ふふ…b本当に可愛いね。","あり");
+        textOrder("呵呵…b真可爱呢。","あり");;
         
 
         }
@@ -1760,7 +1760,7 @@ const onMouseMove = e=>{
           },1000);
           setTimeout(()=>{
             text.style.display=null;
-            textOrder("…っ!?","あり");
+            textOrder("……啊！？","あり");;
           },2000);
         }  
         
@@ -1771,7 +1771,7 @@ const onMouseMove = e=>{
         charmNum++
         charmStatusNum.textContent=`${charmNum-1}`;
         kemoshota.src = images[charmNum]
-        textOrder("んぐっ…bん゛ん゛ん゛ん゛っ…！","あり",);
+        textOrder("嗯咕~呜… b 嗯 ゛嗯゛嗯゛嗯゛~啊呜…!","あり",);
       };
       if(i===4){
         useSpecialFlash(2,"fuchsia");
@@ -1780,7 +1780,7 @@ const onMouseMove = e=>{
         charmNum++
         charmStatusNum.textContent=`${charmNum-1}`;
         kemoshota.src = images[charmNum]
-        textOrder("んっ…んっ…ぅんん…","あり",);
+        textOrder("嗯咻…嗯咻…呜嗯嗯…","あり",);
       }; 
       if(i===5){
         useSpecialFlash(3,"fuchsia");
@@ -1790,7 +1790,7 @@ const onMouseMove = e=>{
         charmNum++
         charmStatusNum.textContent=`${charmNum-1}`;
         kemoshota.src = images[charmNum]
-        textOrder("（ぴちゃ…bぴちゃ……bｼﾞｭﾙ………）","あり",);
+        textOrder("（啪嚓…b啪嚓……b啾咻咻~~………）","あり",);
       }; 
       if(i===6){
         useSpecialFlash(4,"fuchsia");
@@ -1799,14 +1799,14 @@ const onMouseMove = e=>{
         charmNum++
         charmStatusNum.textContent=`${charmNum-1}`;
         kemoshota.src = images[charmNum]
-        textOrder("（ほしい…bもっと…）","あり",);
+        textOrder("（我想要……更多……）","あり",);
       }; 
       if(i===7){
         useSpecialFlash(5,"fuchsia");
         charmNum++
         charmStatusNum.textContent=`${charmNum-1}`;
         kemoshota.src = images[charmNum]
-        textOrder("（あ……）","あり",);
+        textOrder("（啊……）","あり",);
       }; 
       if(i===8){
         
@@ -1814,7 +1814,7 @@ const onMouseMove = e=>{
         charmStatusNum.textContent=`${charmNum-1}`;
         kemoshota.src = images[charmNum];
         text.style.color="white"
-        textOrder("好きだよ、勇者クン。","あり");
+        textOrder("我喜欢你，勇者君。","あり");;
       }; 
       if(i===9){
         let id2 =setInterval(()=>{charmCountUp();
@@ -1829,11 +1829,11 @@ const onMouseMove = e=>{
           },1000);
           setTimeout(()=>{
             text.style.color="yellow";
-            textOrder("なっ…!?","あり");
+            textOrder("什……！？","あり");;
           },2000);
       }; 
       if(i===10){
-        textOrder("嘘だっ…！bだって僕たち…bさっきまで敵どうしで…。","あり");
+        textOrder("不可能吧…！b因为我们刚才还……b是敌人啊……。","あり");;
       }; 
       if(i===11){
         
@@ -1841,31 +1841,31 @@ const onMouseMove = e=>{
         text.style.color="white";
         face.style.opacity="1"
         face.src="img/face00.png";
-        textOrder("嘘じゃないよ。","あり");
+        textOrder("不是假的。","あり");;
       }; 
       if(i===12){
         charmNum++;
         kemoshota.src=images[charmNum];
         text.style.color="white";
-        textOrder("ほら、ボクの胸に手を当てて。bこんなにドキドキしてる。","あり");
+        textOrder("来，手放在我的胸口。b我都快跳出来了。","あり");;
       };
       if(i===13){
         face.style.opacity="0"
         text.style.color="yellow";
         text.style.left="100px"
-        textOrder("あっ…bあっ…あっ……。","あり");
+        textOrder("啊……b啊……啊……。","あり");;
        }
        if(i===14){
         charmNum++;
         kemoshota.src=images[charmNum];
-        textOrder("うぅぅ……。b人形使い様…","あり");
+        textOrder("呜呜……。b人偶使者大人……","あり");;
        }
        if(i===15){
         face.style.opacity="1"
         text.style.color="white"
         text.style.left=null;
         face.src="img/face00.png";
-        textOrder("パップだよ。","あり");
+        textOrder("是帕普。","あり");;
        }
        if(i===16){
         charmNum++;
@@ -1873,18 +1873,18 @@ const onMouseMove = e=>{
         face.style.opacity="0"
         text.style.color="yellow"
         text.style.left="100px"
-        textOrder("パップ様…b僕も…パップ様のことが…","あり");
+        textOrder("帕普大人……b我也……我也……想要……帕普大人……","あり");;
        }
        if(i===17){
         face.style.opacity="1"
         text.style.color="white"
         text.style.left=null
         face.src="img/face00.png";
-        textOrder("ふふふ…b分かってるよ。","あり");
+        textOrder("呵呵呵…b我明白了。","あり");;
        }
        if(i===18){guard2.style.display="block"
         face.src="img/face10.png";
-        textOrder("続きはボクの部屋でしようか。","あり");
+        textOrder("要不要在我房间继续呢。","あり");;
        }
        if (i===19){
         
@@ -1906,7 +1906,7 @@ const onMouseMove = e=>{
           charmEnd="did"
           countStop="yay"
           guard2.style.display="none"
-          textOrder("Ending4b～魅了の魔法～","なし")},3000)  
+          textOrder("结局4b～魅惑的魔法～","なし");},3000)  
         setTimeout(()=>{clickToNext.removeEventListener('click',ClickEvent)
        },2000)  }
     }
@@ -2112,7 +2112,7 @@ const onMouseMove = e=>{
      if(done!=="true" && incbus!=="did" && nuigurumi!=="did" && youko!=="did" && charmEnd!=="did" &&         egg!=="laid" && relief!=="did"){
 
        face.src="img/face09.png"
-       textOrder("（ＯＫ、時間を戻すよ！）","あり")
+       textOrder("（好，时间倒回！）","あり");
        let i=0
        function ClickEvent(){
        nextMouse.style.opacity="0"
@@ -2124,27 +2124,27 @@ const onMouseMove = e=>{
        resetSound.play()
          useSpecialFlash(2,"white");
        face.src="img/face00.png";
-       textOrder("やぁ、勇者クン。bさっきぶりだね。","あり");
+       textOrder("嘿，勇者君。b又见面了。","あり");;
        }
        if(i===2){
          face.style.opacity="0"
          text.style.color="yellow"
          text.style.left="100px"
-         textOrder("？？？","あり");
+         textOrder("？？？","あり");;
          }
        if(i===3){
          face.src="img/face00.png";
          face.style.opacity="1"
          text.style.color="white";
          text.style.left=null;
-         textOrder("ふふふ、こっちの話。","あり");
+         textOrder("呵呵呵，这是我的事情。","あり");;
        }
         if(i===4){
           face.src="img/face06.png";
           face.style.opacity="1"
           text.style.color="white";
           text.style.left=null;
-          textOrder("さ、始めようか。","");
+          textOrder("来，开始吧。","");;
          done="true";
          setTimeout(()=>{flash2.classList.remove("active")},100)
           }    
@@ -2156,7 +2156,7 @@ const onMouseMove = e=>{
   //#region from second
       if(done==="true"&& incbus!=="did" && nuigurumi!=="did" && youko!=="did" && charmEnd!=="did" && egg!=="laid" && relief!=="did"){
         face.src="img/face03.png"
-        textOrder("（わかった、時間を戻すよ！）","あり")
+        textOrder("（明白了，时间倒回！）","あり");
         let i=0
         function ClickEvent(){
         nextMouse.style.opacity="0"
@@ -2168,7 +2168,7 @@ const onMouseMove = e=>{
          resetSound.play()
           useSpecialFlash(2,"white");
           face.src="img/face00.png";
-          textOrder("さ、始めようか？","");
+          textOrder("来，开始吧？","");;
           setTimeout(()=>{flash2.classList.remove("active")},1500)
           }
           
@@ -2188,7 +2188,7 @@ const onMouseMove = e=>{
       text.style.opacity="1"
 
       face.style.opacity="1"
-      textOrder("やぁ、勇者クン。b淫魔としての暮らしはどうだった？","あり")
+      textOrder("嘿，勇者君。b作为淫魔的生活怎么样？","あり");
       },1000)
       
       let i=0
@@ -2198,27 +2198,27 @@ const onMouseMove = e=>{
       i++
      if(i===1){
        face.src="img/face00.png";
-       textOrder("ボクとしては…b食事のために、なりふり構わずb奔走するキミの姿が見られてbすごく愉快だったよ。","あり");
+       textOrder("对我来说，b看你为了食物不顾一切地奔波，b真的很有趣。","あり");;
        }
        if(i===2){
          face.style.opacity="0"
          text.style.color="yellow"
          text.style.left="100px"
-         textOrder("？？？","あり");
+         textOrder("？？？","あり");;
          }
        if(i===3){
          face.src="img/face00.png";
          face.style.opacity="1"
          text.style.color="white";
          text.style.left=null;
-         textOrder("まぁbこっちのキミに話してもb仕方ないか…。","あり");
+         textOrder("唉，跟你说也没什么用啊…。","あり");;
        }
         if(i===4){
           face.src="img/face06.png";
           face.style.opacity="1"
           text.style.color="white";
           text.style.left=null;
-          textOrder("さ、今度は何して遊ぼうか。","");
+          textOrder("那么，这次我们玩什么呢？","");;
          done="true";
          setTimeout(()=>{flash2.classList.remove("active")},100)
           }    
@@ -2240,7 +2240,7 @@ const onMouseMove = e=>{
     face.style.opacity="1"
     text.style.opacity="1"
 
-    textOrder("やぁ、勇者クン。bボクの、かわいいお人形さん。","あり")
+    textOrder("你好啊，勇者君。b我可爱的玩偶。","あり");
     },1000)
     
     let i=0
@@ -2250,31 +2250,31 @@ const onMouseMove = e=>{
     i++
    if(i===1){
      face.src="img/face00.png";
-     textOrder("キミのおかげでbぐっすり眠れるようになったよ。","あり");
+     textOrder("多亏了你，我终于能睡个好觉了。","あり");;
      }
      if(i===2){
       face.src="img/face00.png";
-      textOrder("まぁ、ボロボロになるまで抱き潰してb結局、捨てちゃったんだけどね。","あり");
+      textOrder("唉，虽然最后把它抱得破破烂烂的扔掉了，但总归是被抱过一阵子。","あり");;
       }
      if(i===3){
        face.style.opacity="0"
        text.style.color="yellow"
        text.style.left="100px"
-       textOrder("？？？","あり");
+       textOrder("？？？","あり");;
        }
      if(i===4){
        face.src="img/face00.png";
        face.style.opacity="1"
        text.style.color="white";
        text.style.left=null;
-       textOrder("ふふ…bキミは本当にかわいいね。","あり");
+       textOrder("呵呵…你真是可爱呢。","あり");;
      }
       if(i===5){
         face.src="img/face06.png";
         face.style.opacity="1"
         text.style.color="white";
         text.style.left=null;
-        textOrder("さ、今度は何して遊ぼうか。","");
+        textOrder("那么，这次我们玩什么呢？","");;
        done="true";
        setTimeout(()=>{flash2.classList.remove("active")},100)
         }    
@@ -2297,7 +2297,7 @@ if(egg==="laid"){
   face.style.opacity="1"
   text.style.opacity="1"
   
-  textOrder("やぁ、勇者クン。bママになってみて、どうだった？。","あり")
+  textOrder("你好啊，勇者君。b当妈妈是什么感觉？","あり");
   },1000)
   
   let i=0
@@ -2307,31 +2307,31 @@ if(egg==="laid"){
   i++
  if(i===1){
    face.src="img/face00.png";
-   textOrder("キミが産んだ卵からはb聖魔を合わせ持った強力な新種がb産まれたよ。","あり");
+   textOrder("你生下的蛋里，诞生了既拥有圣魔又强大的新种。","あり");;
    }
    if(i===2){
     face.src="img/face00.png";
-    textOrder("君は子供や孫にすらb交尾と授乳を求められb恍惚とした表情でb卵を産み続けていたよ。","あり");
+    textOrder("你被孩子和孙子要求交配和哺乳时，带着陶醉的表情，继续下蛋。","あり");;
     }
    if(i===3){
      face.style.opacity="0"
      text.style.color="yellow"
      text.style.left="100px"
-     textOrder("？？？bいったい何の話？","あり");
+     textOrder("？？？b到底在说什么？","あり");;
      }
    if(i===4){
      face.src="img/face09.png";
      face.style.opacity="1"
      text.style.color="white";
      text.style.left=null;
-     textOrder("ふふふ…b違う世界線の話。","あり");
+     textOrder("呵呵呵…这是另一条世界线的故事。","あり");;
    }
     if(i===5){
       face.src="img/face06.png";
       face.style.opacity="1"
       text.style.color="white";
       text.style.left=null;
-      textOrder("さ、今度は何して遊ぼうか。","");
+      textOrder("那么，这次我们玩什么呢？","");;
      done="true";
      setTimeout(()=>{flash2.classList.remove("active")},100)
       }    
@@ -2353,7 +2353,7 @@ if(youko==="did"){
   face.style.opacity="1"
   text.style.opacity="1"
 
-  textOrder("やぁ、勇者クン。bお勤めご苦労様。","あり")
+  textOrder("你好啊，勇者君。b辛苦了。","あり");
   },1000)
   
   let i=0
@@ -2363,27 +2363,27 @@ if(youko==="did"){
   i++
  if(i===1){
    face.src="img/face00.png";
-   textOrder("キミが助けに来た仲間をb何の躊躇いもなく惨殺していく様はb最高だったよ。","あり");
+   textOrder("你毫不犹豫地残杀了前来帮忙的伙伴，真是太棒了。","あり");;
    }
  if(i===2){
      face.style.opacity="0"
      text.style.color="yellow"
      text.style.left="100px"
-     textOrder("？？？bいったい何を…？","あり");
+     textOrder("？？？b你到底做了什么…？","あり");;
      }
    if(i===3){
      face.src="img/face00.png";
      face.style.opacity="1"
      text.style.color="white";
      text.style.left=null;
-     textOrder("ふふ…bちょっとした予言だよ。","あり");
+     textOrder("呵呵…b只是一点小预言而已。","あり");;
    }
     if(i===4){
       face.src="img/face06.png";
       face.style.opacity="1"
       text.style.color="white";
       text.style.left=null;
-      textOrder("さ、今度は何して遊ぼうか。","");
+      textOrder("那么，这次我们玩什么呢？","");;
      done="true";
      setTimeout(()=>{flash2.classList.remove("active")},100)
       }    
@@ -2402,7 +2402,7 @@ if(relief==="did"){
   setTimeout(()=>{face.src="img/face00.png"
   face.style.opacity="1"
   text.style.opacity="1"
-  textOrder("やあ、勇者クン。bなんだかすごく懐かしいや。b","あり")
+  textOrder("你好啊，勇者君。b真是让我怀念啊。b","あり");
   },1000)
   
   let i=0
@@ -2412,31 +2412,31 @@ if(relief==="did"){
   i++
  if(i===1){
    face.src="img/face00.png";
-   textOrder("キミがイきたくてもイけないままb100年ぐらいたった頃かな。bふと思い出してb石化を解いてみたんだけど…","あり");
+   textOrder("大概是你想去也去不了的那种感觉吧，已经过了一百年左右。b突然想起了你，解开了石化，结果…","あり");;
    }
    if(i===2){
     face.src="img/face00.png";
-    textOrder("いや、もう…bすごかったよ…bホント…。","あり");
+    textOrder("不，真的…b太棒了…b真的是…。","あり");;
     }
    if(i===3){
      face.style.opacity="0"
      text.style.color="yellow"
      text.style.left="100px"
-     textOrder("？？？","あり");
+     textOrder("？？？","あり");;
      }
    if(i===4){
      face.src="img/face00.png";
      face.style.opacity="1"
      text.style.color="white";
      text.style.left=null;
-     textOrder("ふふふ…b今度は違う世界線にb行けるといいね。","あり");
+     textOrder("呵呵呵…b希望这次能去到另一个世界线。","あり");;
    }
     if(i===5){
       face.src="img/face06.png";
       face.style.opacity="1"
       text.style.color="white";
       text.style.left=null;
-      textOrder("さ、今度は何して遊ぼうか。","");
+      textOrder("那么，这次我们玩什么呢？","");;
      done="true";
      setTimeout(()=>{flash2.classList.remove("active")},100)
       }    
@@ -2458,7 +2458,7 @@ if(charmEnd==="did"){
   setTimeout(()=>{face.src="img/face09.png"
   face.style.opacity="1"
   text.style.opacity="1"
-  textOrder("やぁ、勇者クン。b昨晩はお愉しみだったね。","あり")
+  textOrder("你好啊，勇者君。b昨晚真是享受啊。","あり");
   },1000)
   
   let i=0
@@ -2468,27 +2468,27 @@ if(charmEnd==="did"){
   i++
  if(i===1){
    face.src="img/face00.png";
-   textOrder("キミは本当に献身的でb夢中になってボクに奉仕する様にはb感動すら覚えたよ。","あり");
+   textOrder("你真是太专注了，b为我奉献自己，甚至让我感动。","あり");;
    }
  if(i===2){
      face.style.opacity="0"
      text.style.color="yellow"
      text.style.left="100px"
-     textOrder("？？？","あり");
+     textOrder("？？？","あり");;
      }
    if(i===3){
      face.src="img/face00.png";
      face.style.opacity="1"
      text.style.color="white";
      text.style.left=null;
-     textOrder("まぁ、でもbプレイとしては普通過ぎたかな。","あり");
+     textOrder("唉，不过b从玩法来看，可能有些普通吧。","あり");;
    }
     if(i===4){
       face.src="img/face06.png";
       face.style.opacity="1"
       text.style.color="white";
       text.style.left=null;
-      textOrder("さ、今度は何して遊ぼうか。","");
+      textOrder("那么，这次我们玩什么呢？","");;
      done="true";
      setTimeout(()=>{flash2.classList.remove("active")},100)
       }    
