@@ -1,0 +1,516 @@
+*{
+  margin:0;
+  padding:0;
+}
+/* これは、ブラウザでの見え方の差異を無くすため、余白を０にする処理です。 */
+
+
+body{
+  display: flex;
+  justify-content: center;
+  -webkit-user-drag: none;
+}
+
+#container{
+  width: 1229px;
+  height: 959px;
+  display: flex;
+  position: relative;
+  -webkit-user-drag: none;
+}
+
+#nextMouse{
+  top: 870px;
+  left:900px;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  opacity: 0;
+}
+
+#flash,#flash1,#flash2,#flash3,#flash4,#flash5{
+  pointer-events: none;
+  top: 42px;
+  left: 41px;
+  width: 911px;
+  height: 638px;
+  background-color: green;
+  opacity: 0;
+  z-index: 15;
+  position: absolute;
+}
+
+#flash.active,#flash1.active,#flash2.active,#flash3.active,#flash4.active,#flash5.active{
+  animation-name:flash;
+  animation-duration: 1.5s;
+}
+
+@keyframes flash{
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 0.8;
+  }  
+  100%{
+    opacity:0;
+  }
+}
+
+#black{
+  pointer-events: none;
+  top: 42px;
+  left: 41px;
+  width: 911px;
+  height: 638px;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+  z-index: 200;
+  position: absolute;
+}
+
+#black.active{
+  animation-name:fadeInOut;
+  animation-duration: 4s;
+}
+
+@keyframes fadeInOut{
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }  
+  40%{
+    opacity: 1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+#black.active2{
+  animation-name:fadeIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+#black.active3{
+  animation-name:fadeOut;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+#black.active4{
+  animation-name:fadeInOutFast;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInOutFast{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }  
+  100%{
+    opacity:0;
+  }
+}
+
+#guard{ 
+  left: 970px;
+  width: 250px;
+  cursor: not-allowed;
+  display: block;
+  height: 959px;
+  position: absolute;
+  background-color: blue;
+  opacity: 0.3;
+  -webkit-user-drag: none;
+  z-index: 10;
+}
+#guard2{ 
+  left: 970px;
+  width: 250px;
+  cursor: not-allowed;
+  display: none;
+  height: 959px;
+  position: absolute;
+  background-color: blue;
+  opacity: 0.3;
+  -webkit-user-drag: none;
+  z-index: 10;
+}
+
+#clickToNext{ width: 970px;
+  cursor: pointer;
+  display: none;
+  height: 959px;
+  position: absolute;
+  background-color: rgb(255, 0, 0);
+  opacity: 0;
+  -webkit-user-drag: none;
+  z-index: 11;
+}
+
+#back00{
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+}
+
+#back01{
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 4;
+}
+
+#back03{
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 1;
+  transition: 1s;
+}
+
+#back02{
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 1;
+  transition: 2s;
+}
+
+
+#status{
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 4;
+  transition: 1s;
+}
+
+#poisonNum{
+  top:72px;
+  left: 210px;
+  font-size: 3em;
+  font-weight: 550;
+  color: rgb(255, 255, 255,0.75);
+  -webkit-text-stroke:4px rgb(0, 0, 0);
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 100;
+  transition: 1s;
+}
+
+#sleepNum{
+  top:134px;
+  left: 210px;
+  font-size: 3em;
+  font-weight: 550;
+  color: rgba(255, 255, 255, 0.75);
+  -webkit-text-stroke:4px rgb(0, 0, 0);
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 100;
+  transition: 1s;
+}
+
+#stoneNum{
+  top:194px;
+  left: 210px;
+  font-size: 3em;
+  font-weight: 550;
+  color: rgb(255, 255, 255,0.75);
+  -webkit-text-stroke:4px rgb(0, 0, 0);
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 100;
+  transition: 1s;
+}
+
+#charmNum{
+  top:256px;
+  left: 210px;
+  font-size: 3em;
+  font-weight: 550;
+  color: rgb(255, 255, 255,0.75);
+  -webkit-text-stroke:4px rgb(0, 0, 0);
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 100;
+  transition: 1s;
+}
+
+#face{
+  user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  z-index: 4;
+}
+
+#kemoshota{
+  position: absolute;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index:2;
+  transition: 1s;
+}
+
+#poison_back{
+  cursor: grab;
+  position: absolute;
+  top: 97px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+}
+
+#poison{
+  top: 800px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 6;
+}
+
+#poison_back2{
+  cursor: grab;
+  position: absolute;
+  top: 97px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  display: none;
+}
+
+#poison2{
+  top: 800px;
+  left: 985px;
+   user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+
+
+
+#sleep_back{
+  position: absolute;
+  top: 97px;
+  left: 1090px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  cursor:grab;
+}
+
+#sleep{
+  top: 800px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 6;
+}
+
+#stone_back{
+  position: absolute;
+  top: 197px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  cursor: grab;
+}
+
+#stone{
+  top: 800px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 6;
+}
+
+#charm_back{
+  
+  position: absolute;
+  top: 198px;
+  left: 1090px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  cursor: grab;
+}
+
+#charm{
+  top: 800px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 6;
+}
+
+#charm_back2,#charm_back3{
+  cursor: grab;
+  position: absolute;
+  top: 198px;
+  left: 1090px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  display: none;
+}
+
+#charm2,#charm3{
+  top: 800px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+
+
+#reset_back{
+  position: absolute;
+  top: 303px;
+  left: 985px;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 5;
+  cursor: grab;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+#reset{
+  top: 800px;
+  left: 985px;
+  display: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  position: absolute;
+  z-index: 5000;
+}
+
+
+#prepare{
+  -webkit-user-drag: none;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity:1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  transition: 2s;
+}
+
+#load{
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+  font-size:xx-large
+}
+
+#load.active{
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }  
+  100%{
+    opacity:1;
+  }
+}
+
+#preImage{
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+  position: fixed;
+  scale: 50%;
+  opacity: 0;
+}
+
+#text{
+  top:730px;
+  left:280px;
+  font-size: 35px;
+  font-weight: 500;
+  color: aliceblue;
+  z-index: 5;
+  position: absolute;
+  letter-spacing: 0.1em;
+  text-shadow:2px 2px 0 rgb(0, 0, 0), -2px -2px 0 rgb(0, 0, 0),
+              -2px 2px 0 rgb(0, 0, 0), 2px -2px 0 rgb(0, 0, 0),
+              0px 2px 0 rgb(0, 0, 0),  0 -2px 0 rgb(0, 0, 0),
+              -2px 0 0 rgb(0, 0, 0), 2px 0 0 rgb(0, 0, 0);
+  /* -webkit-text-stroke: 2px rgb(0, 0, 0); */
+  line-height: 42px;
+  opacity: 1;
+}
+
+#atariHantei{
+  top: 42px;
+  left: 41px;
+  width: 911px;
+  height: 638px;
+  background-color: blue;
+  opacity: 0;
+  z-index: 6;
+  position: absolute;
+}
+
