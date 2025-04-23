@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>页面解密器</title>
+</head>
+<body>
+    <h2>请输入密码以解密内容：</h2>
+    <input id="password" type="password" placeholder="密码"/>
+    <button onclick="decryptAndShow()">解密</button>
+
+    <iframe title="asd" id="frame" width="100%" height="500px"></iframe>
+
+    <script>
+        const enc = new TextEncoder();
+        const dec = new TextDecoder();
+
+        const encryptedDataBase64 = "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";
+        const ivBase64 = "kAUFLQh1ySsA+BcJ";
+        const saltBase64 = "huSP9NpwCzCZNpqyTboaAw==";
+
+        async function decryptAndShow() {
+            const password = document.getElementById("password").value;
+            const salt = Uint8Array.from(atob(saltBase64), c => c.charCodeAt(0));
+            const iv = Uint8Array.from(atob(ivBase64), c => c.charCodeAt(0));
+            const data = Uint8Array.from(atob(encryptedDataBase64), c => c.charCodeAt(0));
+
+            const baseKey = await crypto.subtle.importKey(
+                "raw", enc.encode(password),
+                { name: "PBKDF2" }, false, ["deriveKey"]
+            );
+            const key = await crypto.subtle.deriveKey(
+                { name: "PBKDF2", salt, iterations: 100000, hash: "SHA-256" },
+                baseKey,
+                { name: "AES-GCM", length: 256 },
+                false,
+                ["decrypt"]
+            );
+            try {
+                const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, data);
+                document.getElementById("frame").srcdoc = dec.decode(decrypted);
+            } catch (e) {
+                alert("解密失败，请检查密码");
+            }
+        }
+    </script>
+</body>
+
+</html>
+<!-- ```
+
+---
+
+## ✅ ② JS 脚本：获取当前页面并加密为密文（控制台粘贴用）
+
+```js
+(async () => {
+  const enc = new TextEncoder();
+
+  const password = prompt("输入密码");
+  const html = document.documentElement.outerHTML;
+
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+
+  const baseKey = await crypto.subtle.importKey(
+    "raw", enc.encode(password),
+    { name: "PBKDF2" }, false, ["deriveKey"]
+  );
+  const key = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt, iterations: 100000, hash: "SHA-256" },
+    baseKey,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["encrypt"]
+  );
+
+  const ciphertext = await crypto.subtle.encrypt(
+    { name: "AES-GCM", iv },
+    key,
+    enc.encode(html)
+  );
+
+  const toBase64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
+
+  console.log("加密页面内容如下 👇👇👇");
+  console.log("encryptedDataBase64 =", JSON.stringify(toBase64(ciphertext)));
+  console.log("ivBase64 =", JSON.stringify(toBase64(iv)));
+  console.log("saltBase64 =", JSON.stringify(toBase64(salt)));
+})();
+```
+
+---
+
+你只需要把控制台生成的三段 Base64 填进上面的 HTML 模板中，就能实现加密页面解密显示。 -->

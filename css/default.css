@@ -25,7 +25,7 @@
 	--white-semi: rgba(255, 255, 255 ,0.8);
 	--black-semi: rgba(29, 29, 29 ,0.8);
 
-/*light mode*/
+/*light mode*//*
 	--background: var(--japari);
 	--card: var(--white-semi);
 	--card-concrete: white;
@@ -34,8 +34,8 @@
 	--shadow: rgba(0,0,0,0.3);
 	--selected: rgba(127,127,127,0.3);
 	color: var(--content);
-
-/*dark mode*//*
+*/
+/*dark mode*/
 	--background: var(--black);
 	--card: var(--black-semi);
 	--card-concrete: #1c1c1c;
@@ -68,7 +68,7 @@ object{
 /****/
 
 body {
-	background-image: url("../images/savanna.jpg");
+	background-image: url("../images/savanna-night.jpg");
 	background-color: var(--japari);
 	background-repeat: no-repeat;
 	background-position: right top;
@@ -98,7 +98,8 @@ header {
 	vertical-align: middle;
 	width: auto;
 	height: 32px;
-	z-index: 2;
+	z-index: 2;	filter: invert(87%) sepia(30%) saturate(2018%) hue-rotate(349deg) brightness(95%) contrast(77%);
+
 }
 .navlogo-txt{
 	position: absolute;
@@ -107,7 +108,8 @@ header {
 	vertical-align: middle;
 	width: auto;
 	height: 20px;
-	z-index: 2;
+	z-index: 2;	filter: invert(87%) sepia(30%) saturate(2018%) hue-rotate(349deg) brightness(95%) contrast(77%);
+
 }/*这是logo的两个svg*/
 
 .navlist {
