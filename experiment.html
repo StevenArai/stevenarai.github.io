@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment</title>
+    <style>
+        :root {
+            --blue: #007bff;
+            --indigo: #6610f2;
+            --purple: #6f42c1;
+            --pink: #e83e8c;
+            --red: #dc3545;
+            --orange: #fd7e14;
+            --yellow: #ffc107;
+            --green: #28a745;
+            --teal: #20c997;
+            --cyan: #17a2b8;
+            --white: #fff;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+            --primary: #007bff;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+
+            --japari: #d8b526;
+            --white-semi: rgba(255, 255, 255, 0.8);
+            --black-semi: rgba(29, 29, 29, 0.8);
+
+            /*light mode*/
+            --background: var(--japari);
+            --card: var(--white-semi);
+            --card-concrete: white;
+            --content: black;
+            --content-semi: #606060;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --selected: rgba(127, 127, 127, 0.3);
+            color: var(--content);
+
+            /*dark mode*/
+            /*
+        --background: var(--black);
+        --card: var(--black-semi);
+        --card-concrete: #1c1c1c;
+        --content: white;
+        --selected: rgba(127,127,127,0.3);
+        color: var(--content);/*
+        filter japari：
+        filter: invert(87%) sepia(30%) saturate(2018%) hue-rotate(349deg) brightness(95%) contrast(77%);
+        */
+        }
+
+        a {
+            color: var(--japari);
+            text-decoration: underline;
+        }
+
+        header a {
+            color: var(--content);
+        }
+
+        hr {
+            border-width: 0;
+        }
+
+        object {
+            height: 100%;
+            display: inline-block;
+            /*	filter: invert(100%);*/
+        }
+
+        /****/
+
+        body {
+            background-image: url("../images/savanna.jpg");
+            background-color: var(--japari);
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+        }
+
+        /*背景图片*/
+
+        header {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            display: block;
+            padding: 0;
+            margin: 0;
+            height: 56px;
+            background-color: var(--card);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 32px var(--shadow);
+            z-index: 2;
+        }
+
+        /*导航栏div*/
+
+        .navlogo {
+            position: absolute;
+            left: 25px;
+            top: 8px;
+            vertical-align: middle;
+            width: auto;
+            height: 32px;
+            /* z-index: 2;	filter: invert(87%) sepia(30%) saturate(2018%) hue-rotate(349deg) brightness(95%) contrast(77%); */
+
+        }
+
+        .navlogo-txt {
+            position: absolute;
+            left: 65px;
+            top: 16px;
+            vertical-align: middle;
+            width: auto;
+            height: 20px;
+            /* z-index: 2;	filter: invert(87%) sepia(30%) saturate(2018%) hue-rotate(349deg) brightness(95%) contrast(77%); */
+
+        }
+
+        /*这是logo的两个svg*/
+
+        .navlist {
+            display: inline;
+            z-index: 2;
+        }
+
+        .navlist>li {
+            display: inline;
+            z-index: 2;
+        }
+
+        /*导航栏按钮的ul li样式*/
+
+        .navitem {
+            position: relative;
+            margin: 6px 8px 0 8px;
+            padding: 10px 8px 10px 8px;
+            left: 220px;
+            float: left;
+            display: block;
+            text-decoration: none;
+            /*	color: black;*/
+            background-color: rgba(0, 0, 0, 0);
+            background-clip: border-box;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        /*导航列表li内含的anchor(item)*/
+        .navitem:hover {
+            background-color: rgba(135, 135, 135, 0.1);
+        }
+
+        /*item悬停时的按钮外形*/
+        @media only screen and (max-width: 640px) {
+            .navlogo-txt {
+                display: none;
+            }
+
+            /*当屏幕变窄时隐藏txt*/
+            .navitem {
+                left: 60px;
+            }
+
+            .navlist {
+                margin: auto;
+                width: 50%;
+            }
+        }
+
+        .dropdown-content {
+            display: flex;
+            opacity: 0;
+            position: absolute;
+            margin: -500px 100px 100px 100px;
+            width: calc(100% - 200px);
+            padding: 32px 32px 32px 32px;
+            /*	top: 45px;
+        left: calc(225px + var(--N)*80px);*/
+            background-color: var(--card-concrete);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 8px var(--shadow);
+            border-radius: 8px;
+            z-index: 2;
+            /*height: 200px;*/
+            height: auto;
+            /*	overflow: hidden;*/
+            flex-direction: row;
+            flex-wrap: wrap;
+            -webkit-transition: all 0.167s cubic-bezier(1, 0, 1, 0);
+            transition: all 0.167s cubic-bezier(1, 0, 1, 0);
+            z-index: -1;
+            align-content: space-around;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        /*item的下拉菜单，隐藏*/
+
+
+        div.dropdown-item {
+            width: 96px;
+            height: 84px;
+            padding: 13px 13px 13px 13px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 4px;
+        }
+
+        div.dropdown-item:hover {
+            background-color: var(--selected);
+        }
+
+        div.dropdown-item>object {
+            height: 32px;
+        }
+
+        div.dropdown-item>p {
+            text-align: center;
+            text-size-adjust: 11px;
+        }
+
+        .navlist>li:hover .dropdown-content {
+            display: flex;
+            opacity: 1;
+            position: absolute;
+            margin: 45px 100px 100px 100px;
+            box-shadow: 0 0 8px var(--shadow);
+            -webkit-transition: all 0.167s cubic-bezier(0, 1, 0, 1);
+            transition: all 0.167s cubic-bezier(0, 1, 0, 1);
+            z-index: -1;
+
+        }
+
+        /*列表的li悬停时显示下拉菜单*/
+        /*
+    .dropdown-content:hover .dropdown-content {
+        position: absolute;
+        top: 45px;
+        -webkit-transition: all 0.3s cubic-bezier(0,1,0,1);
+        height: 500px;
+    }/*悬停于菜单时保持显示*/
+        /*
+    .dropdown-content > a {
+        display: block;
+        position: relative;
+        margin: 4px 4px 4px 4px;
+        height: 36px;
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-left: 14px;
+        padding-right: 14px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+    /*	color: #000000;*/
+        /*
+        background-clip: border-box;
+        border-radius: 4px;
+        vertical-align: middle;
+    }/*下拉菜单内容a的样式*/
+        /*
+    .dropdown-content > a:hover {
+        vertical-align: middle;
+        background-color: rgba(135, 135, 135, 0.1);
+    }/*下拉菜单内容悬停时的按钮外形*/
+
+
+        @media only screen and (max-width: 640px) {
+            main {
+                display: flex;
+                flex-wrap: wrap;
+                display:
+                    /*flex*/
+                    block;
+                /*		flex-wrap: wrap;*/
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: 1392px) and (min-width: 640px) {
+            main {
+                /*
+            display: flex;
+            flex-wrap: wrap;*/
+                margin: 16px 56px 128px 56px;
+                -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+                transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+            }
+        }
+
+        @media only screen and (min-width: 1392px) {
+            main {
+                /*
+            display: flex;
+            flex-wrap: wrap;*/
+                margin: 16px auto 128px auto;
+                margin: auto;
+                width: 1265px;
+            }
+        }
+
+        /*页面内容边界*/
+
+
+        section {
+            width: auto;
+            height: auto;
+            padding: 40px 60px;
+            margin: 20px;
+            /*	margin: auto;*/
+            background-color: var(--card);
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(32px) brightness(125%);
+            box-shadow: 0 0 8px var(--shadow);
+            border-radius: 8px;
+            /*	white-space: nowrap;
+        7overflow: hidden;*/
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+        }
+
+        /*卡片样式，从html"style"传递参数，--W 宽度，--H 高度*/
+        @media only screen and (max-width: 640px) {
+            section {
+                padding: 20px;
+            }
+        }
+
+        td {
+
+            display: inline-flex;
+            white-space: nowrap;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .compact {
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        .banner-wrapper {
+            width: auto;
+            height: auto;
+            display: flex;
+            padding: 0;
+            overflow: hidden;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            align-content: center;
+        }
+
+        .banner-img-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        /*
+    @media only screen and (max-width: 640px){
+        .banner-wrapper{
+            height: ;
+        }
+    
+    }*/
+        .banner-img-wrapper {
+            background-color: var(--japari);
+            white-space: nowrap;
+            overflow: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .banner-img-wrapper>img {
+            width: 100%;
+            z-index: -1;
+            scroll-behavior: smooth;
+            margin: 0px;
+        }
+
+
+        .banner-control {
+            display: inline-flex;
+            flex-direction: row;
+            white-space: nowrap;
+        }
+
+        .banner-control>img {
+            border-radius: 4px;
+            margin: 10px;
+            width: 64px;
+            box-shadow: 0 0 8px var(--shadow);
+        }
+
+        .banner-control>div {
+            position: absolute;
+            border-radius: 2px;
+            margin-left: 14px;
+            margin-top: 38px;
+            width: 56px;
+            height: 4px;
+            box-shadow: 0 0 8px var(--shadow);
+            background-color: var(--japari);
+            transition: all 0.167s cubic-bezier(1, 0, 0, 1);
+        }
+
+
+        .switch-input {
+            position: absolute;
+            margin-left: -9999px;
+            visibility: hidden;
+        }
+
+        .switch-input+label {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+
+        /*--*/
+        /*
+    input.switch-input + label {	
+        padding: 2px;
+        width: 120px;
+        height: 60px;
+        background-color: #dddddd;
+        border-radius: 60px;
+        transition: background 0.4s;
+    }
+    input.switch-input + label:before,
+    input.switch-input + label:after {
+        display: block;
+        position: absolute;
+        content: "";
+    }
+    input.switch-input + label:before {
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        right: 2px;
+        background-color: #fff;
+        border-radius: 60px;
+        transition: background 0.4s;
+    }
+    input.switch-input + label:after {
+        top: 4px;
+        left: 4px;
+        bottom: 4px;
+        width: 52px;
+        background-color: #dddddd;
+        border-radius: 52px;
+        transition: margin 0.4s, background 0.4s;
+    }
+    input.switch-input:checked + label {
+        background-color: #8ce196;
+    }
+    input.switch-input:checked + label:after {
+        margin-left: 60px;
+        background-color: #8ce196;
+    }*/
+        /*开关*/
+        input.switch-input+label {
+            /*    margin: 20px;*/
+            width: 40px;
+            height: 20px;
+            background-color: grey;
+            border-radius: 20px;
+            -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+            transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+        }
+
+        input.switch-input+label:before,
+        input.switch-input+label:after {
+            display: block;
+            position: absolute;
+            content: "";
+        }
+
+        input.switch-input+label:before {
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            /*    background-color: #888;*/
+            border-radius: 20px;
+            -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+            transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+        }
+
+        input.switch-input+label:after {
+            top: 4px;
+            left: 4px;
+            bottom: 4px;
+            right: 4px;
+            width: 12px;
+            margin-right: 4px;
+            background-color: white;
+            border-radius: 12px;
+            -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+            transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+        }
+
+        input.switch-input+label:hover:after {
+            top: 4px;
+            left: 4px;
+            bottom: 4px;
+            right: 4px;
+            width: 14px;
+        }
+
+        input.switch-input:checked+label:hover:after {
+            margin-left: 18px;
+            margin-right: 2px;
+            background-color: #fff;
+        }
+
+        /*
+    input.switch-input:checked + label {
+        background-color: rgba(0,0,0,0);
+    }*/
+        input.switch-input:checked+label:before {
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            padding-right: 2px;
+            background-color: var(--japari);
+            border-radius: 20px;
+            -webkit-transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+            transition: all 0.167s cubic-bezier(0, 0, 0, 1);
+        }
+
+        input.switch-input:checked+label:after {
+            margin-left: 20px;
+            margin-right: 2px;
+            background-color: #fff;
+        }
+
+        /*开关控件*/
+
+        button {
+            width: 128px;
+            height: 32px;
+            box-shadow: 0 1px 2px var(--shadow);
+            border-radius: 4px;
+            border-width: 0;
+            background-color: var(--card-concrete);
+            color: var(--content);
+            cursor: pointer;
+            -webkit-transition: all 0.167 cubic-bezier(0, 1, 0, 1);
+            transition: all 0.167s cubic-bezier(0, 1, 0, 1);
+        }
+
+        button.primary {
+            background-color: var(--japari);
+            color: var(--card-concrete);
+        }
+
+        button:active {
+            box-shadow: 0 0 0;
+            transform: translateY(2px);
+        }
+
+        div.intro {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+            box-sizing: border-box;
+            height: 69px;
+            background-color: var(--card);
+            box-shadow: 0 0 2px var(--shadow);
+            border-radius: 4px;
+            vertical-align: middle;
+            margin: 5px 0 5px 0;
+        }
+
+        div.intro>object {
+            height: 20px;
+            width: 20px;
+            padding-left: 18px;
+        }
+
+        div.intro-wrapper {
+            /*	display: inline-block;*/
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        div.intro-wrapper>p {
+            /*	display: inline-block;*/
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            font-size: 12px;
+        }
+
+        div.intro-wrapper>p~p {
+            color: var(--content-semi);
+            font-size: 11px;
+        }
+
+        div.intro-switch-wrapper {
+            /*	display: inline-block;*/
+            /*	margin-right: 20px;
+        width: 40px;
+        height: 20px;*/
+            margin-right: 16px;
+            margin-left: auto;
+            padding: 0 0 0 0;
+        }
+
+        div.intro-switch-wrapper>div {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+
+
+        p.bar h1 {
+            margin: 0;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        h4 {
+            margin: 0;
+        }
+
+        /*关闭标题的margin*/
+        table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 20px auto;
+            background-color: var(--card-concrete);
+            box-shadow: 0 0 8px var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        tr,
+        td,
+        th {
+            padding: 8px;
+            width: auto;
+            margin: 0;
+            border-collapse: collapse;
+            border-spacing: 2px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            border-radius: 0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: var(--japari);
+            color: white;
+        }
+
+        tr {
+            display: table-row;
+        }
+
+        td {
+            display: table-cell;
+        }
+
+        th {
+            display: table-cell;
+            font-weight: bold;
+        }
+
+        progress {
+            appearance: none;
+            width: 100%;
+            height: 20px;
+            margin: 20px auto;
+        }
+
+        progress::-webkit-progress-bar {
+
+            border-radius: 10px;
+            background-color: #d0d0d0;
+            box-shadow: 0 0 8px var(--shadow);
+        }
+
+        progress::-webkit-progress-value {
+            border-radius: 10px;
+            box-shadow: 0 0 8px var(--shadow);
+            background-color: var(--japari);
+        }
+
+        /*进度条*/
+        meter {
+            appearance: none;
+            width: 100%;
+            height: 20px;
+            margin: 20px auto;
+        }
+
+        meter::-webkit-meter-bar {
+            border-radius: 10px;
+            background-color: var(--shadow);
+            background: var(--shadow);
+            box-shadow: 0 0 8px var(--shadow);
+        }
+
+        meter::-webkit-progress-inner-element {
+            border-radius: 10px;
+            box-shadow: 0 0 8px var(--shadow);
+            background-image: -webkit-linear-gradient(90deg, var(--japari) 0%, var(--japari) 50%, var);
+        }
+
+        meter::-webkit-meter-optimum-value {
+            border-radius: 10px;
+            box-shadow: 0 0 8px var(--shadow);
+            background-color: var(--japari);
+        }
+
+        meter::-webkit-meter-suboptimum-value {
+            border-radius: 10px;
+            box-shadow: 0 0 8px var(--shadow);
+            background-color: var(--japari);
+        }
+
+        meter::-webkit-meter-even-less-good-value {
+            border-radius: 10px;
+            box-shadow: 0 0 8px var(--shadow);
+        }
+
+        form.register-form {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+            box-sizing: border-box;
+            height: auto;
+        }
+
+        input[type=text] {
+            box-sizing: border-box;
+            height: 28px;
+            padding: 4px;
+            vertical-align: middle;
+            margin: 5px;
+            display: inline-block;
+            background-color: white;
+            border-radius: 4px;
+            box-sizing: content-box;
+            border: 0px;
+            border-bottom: 1px solid grey;
+            transition: all cubic-bezier(0, 0, 0, 1) 0.3s;
+            box-shadow: 0 0 1px var(--shadow);
+        }
+
+        input[type=text]:hover {
+            border-bottom: 4px solid var(--japari);
+            box-shadow: 0 0 4px var(--shadow);
+        }
+
+        input[type=password] {
+            box-sizing: border-box;
+            height: 28px;
+            padding: 4px;
+            vertical-align: middle;
+            margin: 5px;
+            display: inline-block;
+            background-color: white;
+            border-radius: 4px;
+            box-sizing: content-box;
+            border: 0px;
+            border-bottom: 1px solid grey;
+            transition: all cubic-bezier(0, 0, 0, 1) 0.3s;
+            box-shadow: 0 0 1px var(--shadow);
+        }
+
+        input[type=password]:hover {
+            border-bottom: 4px solid var(--japari);
+            box-shadow: 0 0 4px var(--shadow);
+        }
+
+        input[type=email] {
+            box-sizing: border-box;
+            height: 28px;
+            padding: 4px;
+            vertical-align: middle;
+            margin: 5px;
+            display: inline-block;
+            background-color: white;
+            border-radius: 4px;
+            box-sizing: content-box;
+            border: 0px;
+            border-bottom: 1px solid grey;
+            transition: all cubic-bezier(0, 0, 0, 1) 0.3s;
+            box-shadow: 0 0 1px var(--shadow);
+        }
+
+        input[type=email]:hover {
+            border-bottom: 4px solid var(--japari);
+            box-shadow: 0 0 4px var(--shadow);
+        }
+
+        input[type=radio] {
+            box-sizing: border-box;
+            border: 2rpx solid #999999;
+            border-radius: 100%;
+            background: var(--card-concrete);
+            transition: all cubic-bezier(0, 0, 0, 1) 0.3s;
+        }
+
+        input[type=radio]::before {
+            content: "";
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            transform: translate(-50%, -50%) scale(1);
+            -webkit-transform: translate(-50%, -50%) scale(1);
+        }
+
+        input[type=radio]:disabled {
+            border: 2rpx solid #999999;
+            border-radius: 100%;
+            background: var(--card-concrete);
+        }
+
+        input[type=radio]:checked {
+            box-sizing: border-box;
+            border-color: var(--japari) !important;
+            border-width: 5px;
+            background-color: var(--card-concrete) !important;
+        }
+
+        input[type=radio]:checked::before {
+            display: none;
+            content: "";
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            background-color: var(--card-concrete);
+            transform: translate(-50%, -50%) scale(1);
+            -webkit-transform: translate(-50%, -50%) scale(1);
+        }
+
+        .magnify-on-hover {
+            transition: all cubic-bezier(0, 0, 0, 1) 0.3s;
+        }
+
+        .magnify-on-hover:hover {
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+        }
+
+
+        .neonText {
+            font-size: 64px;
+            line-height: 50px;
+            min-width: 50px;
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #0fa,
+                0 0 82px #0fa,
+                0 0 92px #0fa,
+                0 0 102px #0fa,
+                0 0 151px #0fa;
+        }
+
+        .pulsate {
+            animation: pulsate 1.5s infinite alternate;
+        }
+
+        @keyframes pulsate {
+
+            100% {
+
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #fff,
+                    0 0 40px #0fa,
+                    0 0 80px #0fa,
+                    0 0 90px #0fa,
+                    0 0 100px #0fa,
+                    0 0 150px #0fa;
+
+            }
+
+            0% {
+
+                text-shadow:
+                    0 0 2px #fff,
+                    0 0 4px #fff,
+                    0 0 6px #fff,
+                    0 0 10px #0fa,
+                    0 0 45px #0fa,
+                    0 0 55px #0fa,
+                    0 0 70px #0fa,
+                    0 0 80px #0fa;
+            }
+        }
+
+
+        .fire {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 1000px;
+            height: 200px;
+
+            background-position: center center;
+            background-size: 1000px 200px;
+            border-radius: 10px;
+            font-family: 'Akronim';
+            overflow: hidden;
+            text-align: center;
+            vertical-align: middle;
+
+        }
+
+        .fire:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .Blazing {
+            display: inline-block;
+            margin: 0;
+
+            color: rgb(255, 115, 0);
+            font-size: 64px;
+            line-height: 50px;
+            min-width: 50px;
+            outline: none;
+            vertical-align: middle;
+
+            text-shadow:
+                0 3px 20px red,
+                0 0 20px red,
+                0 0 10px orange,
+                4px -5px 6px yellow,
+                -4px -10px 10px yellow,
+                0 -10px 30px yellow;
+            animation: 2s Blazing infinite alternate linear;
+        }
+
+        @keyframes Blazing {
+            0% {
+                text-shadow: 0 3px 20px red, 0 0 20px red,
+                    0 0 10px orange,
+                    0 0 0 yellow,
+                    0 0 5px yellow,
+                    -2px -5px 5px yellow,
+                    4px -10px 10px yellow;
+            }
+
+            25% {
+                text-shadow: 0 3px 20px red, 0 0 30px red,
+                    0 0 20px orange,
+                    0 0 5px yellow,
+                    -2px -5px 5px yellow,
+                    3px -10px 10px yellow,
+                    -4px -15px 20px yellow;
+            }
+
+            50% {
+                text-shadow: 0 3px 20px red, 0 0 20px red,
+                    0 -5px 10px orange,
+                    -2px -5px 5px yellow,
+                    3px -10px 10px yellow,
+                    -4px -15px 20px yellow,
+                    2px -20px 30px rgba(255, 255, 0, 0.5);
+            }
+
+            75% {
+                text-shadow: 0 3px 20px red, 0 0 20px red,
+                    0 -5px 10px orange,
+                    3px -5px 5px yellow,
+                    -4px -10px 10px yellow,
+                    2px -20px 30px rgba(255, 255, 0, 0.5),
+                    0px -25px 40px rgba(255, 255, 0, 0)
+            }
+
+            100% {
+                text-shadow: 0 3px 20px red, 0 0 20px red,
+                    0 0 10px orange,
+                    0 0 0 yellow,
+                    0 0 5px yellow,
+                    -2px -5px 5px yellow,
+                    4px -10px 10px yellow;
+            }
+        }
+
+
+        .clock {
+            font-size: 128px;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        #calendar {
+            width: 400px;
+            height: fit-content;
+            margin: auto;
+            text-align: center;
+        }
+
+        button {
+            width: 25%;
+            float: left;
+            height: 40px;
+        }
+
+        #month {
+            width: 50%;
+            float: left;
+            line-height: 40px;
+        }
+
+        #day::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .everyday {
+            position: relative;
+            margin: 5px;
+            background-color: white;
+            box-shadow: 0 0 2px var(--shadow);
+            display: block;
+            width: 11.75%;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        #captcha {
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 8px var(--shadow);
+        }
+    </style>
+    <script>
+        const chars = 'abcdefghijkmnpqrstuvwxyABCDEFGHIJLMNOPQRSTUVWXYZ123456789';
+        const fontSize = 6;
+        const codeLength = 4;
+        // 生成验证码
+        function getRandomChar() {
+            return chars[Math.floor(Math.random() * chars.length)];
+        }
+
+        function randomColor(min, max) {
+            const r = min + Math.floor(Math.random() * (max - min));
+            const g = min + Math.floor(Math.random() * (max - min));
+            const b = min + Math.floor(Math.random() * (max - min));
+            return `rgb(${r},${g},${b})`;
+        }
+
+        function drawCaptcha() {
+            let canvas = document.getElementById('captcha');
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, 100, 30);
+
+            // 背景色
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 100, 30);
+
+            // 字符
+            for (let i = 0; i < codeLength; i++) {
+                ctx.font = `${fontSize * 3}px Arial`; // 字号为6 → 实际显示乘以3
+                ctx.fillStyle = randomColor(0, 120);
+                const x = 20 * i + 5;
+                const y = 20 + Math.random() * 5;
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate((Math.random() - 0.5) * 0.4);
+                ctx.fillText(getRandomChar(), 0, 0);
+                ctx.restore();
+            }
+
+            // 干扰点（颜色[50,200]）
+            for (let i = 0; i < 200; i++) {
+                ctx.fillStyle = randomColor(50, 200);
+                const x = Math.random() * 98 + 1;
+                const y = Math.random() * 28 + 1;
+                ctx.fillRect(x, y, 1, 1);
+            }
+
+            // 干扰线3条
+            for (let i = 0; i < 13; i++) {
+                ctx.strokeStyle = randomColor(80, 220);
+                ctx.beginPath();
+                ctx.moveTo(Math.random() * 98 + 1, Math.random() * 28 + 1);
+                ctx.lineTo(Math.random() * 98 + 1, Math.random() * 28 + 1);
+                ctx.stroke();
+            }
+        }
+
+        window.onload = function () {
+            let canvas = document.getElementById('captcha');
+            canvas.onclick = drawCaptcha;
+            drawCaptcha();
+
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+
+        <object alt="navlogo" class="navlogo" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+        <object alt="navlogo-txt" class="navlogo-txt" data="./svgs/t-hatunion.svg" ;type="image/svg+xml"> </object>
+
+        <nav>
+            <ul class="navlist">
+                <li>
+                    <a class="navitem" href="javascript:void(0)">头条</a>
+                    <div class="dropdown-content" style="--N:0">
+                        <!--a href="javascript:void(0)">Link 1</a>
+				    <a href="javascript:void(0)">Link 2</a>
+				    <a href="javascript:void(0)">Link 3</a-->
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>App 1</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Microsoft To Do</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union 1</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="navitem" href="javascript:void(0)">娱乐</a>
+                    <div class="dropdown-content" style="--N:0">
+                        <!--a href="javascript:void(0)">Link 1</a>
+				    <a href="javascript:void(0)">Link 2</a>
+				    <a href="javascript:void(0)">Link 3</a-->
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>App 1</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Microsoft To Do</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union 1</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="navitem" href="javascript:void(0)">热点</a>
+                    <div class="dropdown-content" style="--N:0">
+                        <!--a href="javascript:void(0)">Link 1</a>
+				    <a href="javascript:void(0)">Link 2</a>
+				    <a href="javascript:void(0)">Link 3</a-->
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>App 1</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Microsoft To Do</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union 1</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="navitem" href="javascript:void(0)">体育</a>
+                    <div class="dropdown-content" style="--N:0">
+                        <!--a href="javascript:void(0)">Link 1</a>
+				    <a href="javascript:void(0)">Link 2</a>
+				    <a href="javascript:void(0)">Link 3</a-->
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>App 1</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Microsoft To Do</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union 1</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="navitem" href="javascript:void(0)">财经</a>
+                    <div class="dropdown-content" style="--N:0">
+                        <!--a href="javascript:void(0)">Link 1</a>
+				    <a href="javascript:void(0)">Link 2</a>
+				    <a href="javascript:void(0)">Link 3</a-->
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>App 1</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Microsoft To Do</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union 1</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="navitem" href="javascript:void(0)">科技</a>
+                    <div class="dropdown-content" style="--N:0">
+                        <!--a href="javascript:void(0)">Link 1</a>
+				    <a href="javascript:void(0)">Link 2</a>
+				    <a href="javascript:void(0)">Link 3</a-->
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>App 1</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Microsoft To Do</p>
+                        </div>
+                        <div class="dropdown-item">
+                            <object alt="svg" data="./svgs/hatlogo.svg" ;type="image/svg+xml"> </object>
+                            <p>Hat Union 1</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="navitem" href="javascript:void(0)">应用</a>
+
+                <li>
+                    <a class="navitem" href="javascript:void(0)">HUCP</a>
+                    <div class="dropdown-content" style="--N:1">
+                        <a href="javascript:void(0)">Link 4</a>
+                        <a href="javascript:void(0)">Link 5</a>
+                        <a href="javascript:void(0)">Link 6</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <section>
+            <h1>验证码</h1>
+            <p>看不清？点击验证码重新换一个：</p>
+            <canvas id="captcha" width="100" height="30"></canvas>
+            <script>
+            </script>
+
+        </section>
+    </main>
+</body>
+
+</html>
